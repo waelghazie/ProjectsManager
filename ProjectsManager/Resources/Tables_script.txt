@@ -1,0 +1,446 @@
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[appsettings]    Script Date: 09/22/2016 20:57:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[appsettings](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[DatabaseName] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[AppVersion] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[ReportsPath] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[PhotosPath] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[BackupPath] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[BackupInterval] [int] NULL,
+	[DomainController] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[OU] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[Domain] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[DomainSuffix] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[Username] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[Password] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+ CONSTRAINT [PK_appsettings] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Current DB name' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'appsettings', @level2type=N'COLUMN', @level2name=N'DatabaseName'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Reports path for current DB' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'appsettings', @level2type=N'COLUMN', @level2name=N'ReportsPath'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'DB Backup folder path' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'appsettings', @level2type=N'COLUMN', @level2name=N'BackupPath'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Domain Controller name' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'appsettings', @level2type=N'COLUMN', @level2name=N'DomainController'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Organiztional Unit for Active directory users' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'appsettings', @level2type=N'COLUMN', @level2name=N'OU'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Name of the domain' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'appsettings', @level2type=N'COLUMN', @level2name=N'Domain'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Account used to connect to domain' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'appsettings', @level2type=N'COLUMN', @level2name=N'Username'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Password for account' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'appsettings', @level2type=N'COLUMN', @level2name=N'Password'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Settings for current DB' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'appsettings'
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[BackupSummary]    Script Date: 09/22/2016 20:58:20 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BackupSummary](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[date] [datetime] NULL,
+ CONSTRAINT [PK_BackupSummary] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[contractors]    Script Date: 09/22/2016 20:58:31 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[contractors](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[phone1] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[phone2] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[del] [bit] NULL,
+	[ContractorMobile] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[ContractorFax] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[ContractorMail] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[ContractorAddress] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[ContractorManager] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+ CONSTRAINT [PK_contractors] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[customers]    Script Date: 09/22/2016 20:58:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[customers](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[mobile] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[manager] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[del] [bit] NULL,
+	[CustomerPhone1] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[CustomerPhone2] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[CustomerFAX] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[CustomerMail] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[CustomerAddress] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+ CONSTRAINT [PK_customers_1] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[InstituteProfessions]    Script Date: 09/22/2016 20:58:53 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[InstituteProfessions](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Profession] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+ CONSTRAINT [PK_InstituteProfessions] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[institutes]    Script Date: 09/22/2016 20:59:01 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[institutes](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) COLLATE Arabic_CI_AS NOT NULL,
+	[customer] [int] NULL,
+	[phone1] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[phone2] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[fax] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[email] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[manager] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[address] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[del] [bit] NULL CONSTRAINT [DF_institutes_del]  DEFAULT ((0)),
+	[workingdays] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[Mobile] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[Sector] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[Profession] [int] NULL,
+ CONSTRAINT [PK_institutes] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[PhoneCallsLog]    Script Date: 09/22/2016 20:59:07 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PhoneCallsLog](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[TimeStamp] [datetime] NULL,
+	[CustomerID] [int] NULL,
+	[InstituteID] [int] NULL,
+	[PlantID] [int] NULL,
+	[Text] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[ByUser] [int] NULL,
+	[AddTime] [datetime] NULL,
+ CONSTRAINT [PK_PhoneCalls] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[plants]    Script Date: 09/22/2016 20:59:13 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[plants](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) COLLATE Arabic_CI_AS NOT NULL,
+	[technician] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[institute] [int] NOT NULL,
+	[contractor] [int] NULL,
+	[contract_type] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[report_name] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[start_time] [datetime] NULL,
+	[end_time] [datetime] NULL,
+	[del] [bit] NULL CONSTRAINT [DF_plants_del]  DEFAULT ((0)),
+	[PhotoFolderName] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[LastStatus] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[PlantDetails] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[PlantTypeID] [int] NULL,
+	[PlantStatus] [nvarchar](50) COLLATE Arabic_CI_AS NULL,
+	[PlantStartingDate] [datetime] NULL,
+ CONSTRAINT [PK_plants_1] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[PlantService]    Script Date: 09/22/2016 20:59:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PlantService](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[CustomerID] [int] NULL,
+	[InstituteID] [int] NULL,
+	[PlantID] [int] NULL,
+	[VisitText] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[VisitNote] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[ServiceText] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[ServiceNote] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[ProgramID] [int] NULL,
+	[RecordOrderNO] [int] NULL,
+ CONSTRAINT [PK_PlantVisit] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[PlantType]    Script Date: 09/22/2016 20:59:28 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PlantType](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[PlantType] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+ CONSTRAINT [PK_PlantType] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[Programs]    Script Date: 09/22/2016 20:59:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Programs](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[ProgramDate] [datetime] NULL,
+	[VehicleID] [int] NULL,
+	[TechnicianID] [int] NULL,
+	[AccompanyingID] [int] NULL,
+	[DriverID] [int] NULL,
+	[CarDistanceMeterBefore] [int] NULL,
+	[CarDistanceMeteAfter] [int] NULL,
+	[ProgramText] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[TimeStamp] [datetime] NULL,
+	[ByUserID] [int] NULL,
+ CONSTRAINT [PK_ServicesPrograms] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[reminders]    Script Date: 09/22/2016 20:59:43 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[reminders](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[Text] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[TimeStamp] [datetime] NULL,
+	[TargetTime] [datetime] NULL,
+	[FromUserID] [int] NULL,
+	[ToUserID] [int] NULL,
+	[PlantId] [int] NULL,
+	[Importance] [int] NULL,
+	[Dismiss] [bit] NULL,
+ CONSTRAINT [PK_reminders] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[Technicians]    Script Date: 09/22/2016 20:59:52 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Technicians](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[TechnicianName] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+ CONSTRAINT [PK_Technicians] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[users]    Script Date: 09/22/2016 21:00:06 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[users](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[displayname] [nvarchar](50) COLLATE Arabic_CI_AS NOT NULL,
+	[username] [nvarchar](50) COLLATE Arabic_CI_AS NOT NULL,
+	[password] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[read] [bit] NOT NULL,
+	[modify] [bit] NOT NULL,
+	[create] [bit] NOT NULL,
+	[delete] [bit] NOT NULL,
+	[ManageUsers] [bit] NOT NULL,
+	[sid] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[userprincipalname] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+	[isdomainuser] [bit] NULL,
+ CONSTRAINT [PK_users_1] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Permission' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'users', @level2type=N'COLUMN', @level2name=N'read'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Permission' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'users', @level2type=N'COLUMN', @level2name=N'modify'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Permission' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'users', @level2type=N'COLUMN', @level2name=N'create'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Permission' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'users', @level2type=N'COLUMN', @level2name=N'delete'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Permission' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'users', @level2type=N'COLUMN', @level2name=N'ManageUsers'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Windows SID - security Identifier' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'users', @level2type=N'COLUMN', @level2name=N'sid'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'User Principle Name (Active Directory)' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'users', @level2type=N'COLUMN', @level2name=N'userprincipalname'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Is this recored for domain User?' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'TABLE', @level1name=N'users', @level2type=N'COLUMN', @level2name=N'isdomainuser'
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  Table [dbo].[Vehicles]    Script Date: 09/22/2016 21:00:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Vehicles](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[VehicleName] [nvarchar](max) COLLATE Arabic_CI_AS NULL,
+ CONSTRAINT [PK_Cars] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+
+

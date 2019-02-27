@@ -1,0 +1,56 @@
+﻿/* ...... create varibles @MdfName & @LdfName to hold Backup Logical Names   ..... */
+
+DECLARE @FileList TABLE
+      (
+      LogicalName nvarchar(128) NOT NULL,
+      PhysicalName nvarchar(260) NOT NULL,
+      Type char(1) NOT NULL,
+      FileGroupName nvarchar(120) NULL,
+      Size numeric(20, 0) NOT NULL,
+      MaxSize numeric(20, 0) NOT NULL,
+      FileID bigint NULL,
+      CreateLSN numeric(25,0) NULL,
+      DropLSN numeric(25,0) NULL,
+      UniqueID uniqueidentifier NULL,
+      ReadOnlyLSN numeric(25,0) NULL ,
+      ReadWriteLSN numeric(25,0) NULL,
+      BackupSizeInBytes bigint NULL,
+      SourceBlockSize int NULL,
+      FileGroupID int NULL,
+      LogGroupGUID uniqueidentifier NULL,
+      DifferentialBaseLSN numeric(25,0)NULL,
+      DifferentialBaseGUID uniqueidentifier NULL,
+      IsReadOnly bit NULL,
+      IsPresent bit NULL
+ )
+
+INSERT INTO @FileList EXEC('RESTORE FILELISTONLY FROM DISK =  ''LocationParam''')
+
+DECLARE @MdfName varchar(50)
+DECLARE @LdfName varchar(50)
+SELECT @MdfName = LogicalName FROM @FileList WHERE Type = 'D'
+SELECT @LdfName = LogicalName FROM @FileList WHERE Type = 'L'
+
+
+/* ...... Get Current Database Pathes   ..... */
+
+DECLARE @paths TABLE
+(
+		name nvarchar(max) NOT NULL,
+		physical_name nvarchar(max) NOT NULL
+)
+
+INSERT INTO @paths EXEC('SELECT name, physical_name FROM sys.master_files where physical_name like ''%DatabaseParam%''')
+
+DECLARE @MdfPath nvarchar(max)
+DECLARE @LdfPath nvarchar(max)
+Select @MdfPath = physical_name from @paths where physical_name like '%.mdf'
+Select @LdfPath = physical_name from @paths where physical_name like '%.ldf'
+
+
+/* ...... Restore Database   ..... */
+
+RESTORE DATABASE DatabaseParam FROM  DISK = N'LocationParam' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 10,
+move @MdfName to @MdfPath,
+move @LdfName to @LdfPath
+

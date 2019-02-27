@@ -1,0 +1,760 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8043A23C-C2ED-4BD3-9C08-0E4599A7A5C3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProjectsManager</RootNamespace>
+    <AssemblyName>ProjectsManager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ManifestCertificateThumbprint>8889CD4276510193CBBC2C75BC3E0E2C3131D0F8</ManifestCertificateThumbprint>
+    <ManifestKeyFile>test_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>false</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\Wael\Desktop\ProjectsManager\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>ar-SY</TargetCulture>
+    <ProductName>مدير المشاريع</ProductName>
+    <PublisherName>WaelGhazie Programs</PublisherName>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.1.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AnalogClockControl, Version=1.5.0.3, Culture=neutral, PublicKeyToken=ddc4cf237b0fd507, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\AnalogClockControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>Lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Diagnostics.Strace, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.Diagnostics.Strace.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Dmf.Common, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.Dmf.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.CollectorEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.Management.CollectorEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Utility, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.Management.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEvent, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.Management.XEvent.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.XEventDbScopedEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.Management.XEventDbScopedEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.PolicyEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.PolicyEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ServiceBrokerEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.ServiceBrokerEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlClrProvider, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.SqlClrProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlTDiagm, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.SqlTDiagm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SString, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.SString.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.WmiEnum, Version=14.100.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\lib\net40\Microsoft.SqlServer.WmiEnum.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.DirectoryServices.AccountManagement">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\CheckOS32or64.cs" />
+    <Compile Include="Controls\AddPlantToProgram.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\AddPlantToProgram.Designer.cs">
+      <DependentUpon>AddPlantToProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ActivateProjectsManager.cs" />
+    <Compile Include="Classes\ActivationInfo.cs" />
+    <Compile Include="Classes\AppConnection.cs" />
+    <Compile Include="Controls\CallsAdvancedSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\CallsAdvancedSearch.Designer.cs">
+      <DependentUpon>CallsAdvancedSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EnterServiceTextForVisit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\EnterServiceTextForVisit.Designer.cs">
+      <DependentUpon>EnterServiceTextForVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\CreateNewDBform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\CreateNewDBform.designer.cs">
+      <DependentUpon>CreateNewDBform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntries\PlantTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataEntries\PlantTypeForm.Designer.cs">
+      <DependentUpon>PlantTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FolderBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FolderBrowser.Designer.cs">
+      <DependentUpon>FolderBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ColumnsSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\ColumnsSelect.Designer.cs">
+      <DependentUpon>ColumnsSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\DeleteItem.cs" />
+    <Compile Include="Controls\NotifyMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\NotifyMessage.designer.cs">
+      <DependentUpon>NotifyMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlantAdvancedSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PlantAdvancedSearch.Designer.cs">
+      <DependentUpon>PlantAdvancedSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InstituteAdvancedSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\InstituteAdvancedSearch.Designer.cs">
+      <DependentUpon>InstituteAdvancedSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\DBSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\DBSettingsForm.Designer.cs">
+      <DependentUpon>DBSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\AutoCompleteTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Experimental\AutoCompleteTextBox.Designer.cs">
+      <DependentUpon>AutoCompleteTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\BackupWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\BackupWindow.Designer.cs">
+      <DependentUpon>BackupWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CallWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CallWindow.Designer.cs">
+      <DependentUpon>CallWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntries\InstituteProfessionsWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataEntries\InstituteProfessionsWindows.Designer.cs">
+      <DependentUpon>InstituteProfessionsWindows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntries\TechniciansWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataEntries\TechniciansWindows.Designer.cs">
+      <DependentUpon>TechniciansWindows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntries\VehiclesWindows.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataEntries\VehiclesWindows.Designer.cs">
+      <DependentUpon>VehiclesWindows.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ApplicationWizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\ApplicationWizardForm.Designer.cs">
+      <DependentUpon>ApplicationWizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Encryption.cs" />
+    <Compile Include="Management\LicenseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\LicenseWindow.Designer.cs">
+      <DependentUpon>LicenseWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlantOpenToolTip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PlantOpenToolTip.Designer.cs">
+      <DependentUpon>PlantOpenToolTip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PlantChoose.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PlantChoose.Designer.cs">
+      <DependentUpon>PlantChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="projectsmanagerDataSet.cs">
+      <DependentUpon>projectsmanagerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="projectsmanagerDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>projectsmanagerDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\ProtectedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reminders\Reminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reminders\Reminder.Designer.cs">
+      <DependentUpon>Reminder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reminders\ReminderCreator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reminders\ReminderCreator.Designer.cs">
+      <DependentUpon>ReminderCreator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reminders\RemindersView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reminders\RemindersView.Designer.cs">
+      <DependentUpon>RemindersView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\RestoreDBBackupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\RestoreDBBackupForm.Designer.cs">
+      <DependentUpon>RestoreDBBackupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\RestoreItem.cs" />
+    <Compile Include="Classes\ReplaceChar.cs" />
+    <Compile Include="RTFeditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RTFeditorForm.Designer.cs">
+      <DependentUpon>RTFeditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgramForm.Designer.cs">
+      <DependentUpon>ProgramForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings1.cs" />
+    <Compile Include="Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings1.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Management\AppSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\AppSettingsForm.Designer.cs">
+      <DependentUpon>AppSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstituteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstituteForm.Designer.cs">
+      <DependentUpon>InstituteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlantForm.Designer.cs">
+      <DependentUpon>PlantForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntries\CustomersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataEntries\CustomersForm.Designer.cs">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataEntries\ContractorsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataEntries\ContractorsForm.Designer.cs">
+      <DependentUpon>ContractorsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\AddPlantToProgram.resx">
+      <DependentUpon>AddPlantToProgram.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CallsAdvancedSearch.resx">
+      <DependentUpon>CallsAdvancedSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EnterServiceTextForVisit.resx">
+      <DependentUpon>EnterServiceTextForVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\CreateNewDBform.resx">
+      <DependentUpon>CreateNewDBform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataEntries\PlantTypeForm.resx">
+      <DependentUpon>PlantTypeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FolderBrowser.resx">
+      <DependentUpon>FolderBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\ColumnsSelect.resx">
+      <DependentUpon>ColumnsSelect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NotifyMessage.resx">
+      <DependentUpon>NotifyMessage.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlantAdvancedSearch.resx">
+      <DependentUpon>PlantAdvancedSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\InstituteAdvancedSearch.resx">
+      <DependentUpon>InstituteAdvancedSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\DBSettingsForm.resx">
+      <DependentUpon>DBSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\AutoCompleteTextBox.resx">
+      <DependentUpon>AutoCompleteTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\BackupWindow.resx">
+      <DependentUpon>BackupWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CallWindow.resx">
+      <DependentUpon>CallWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataEntries\InstituteProfessionsWindows.resx">
+      <DependentUpon>InstituteProfessionsWindows.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataEntries\TechniciansWindows.resx">
+      <DependentUpon>TechniciansWindows.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataEntries\VehiclesWindows.resx">
+      <DependentUpon>VehiclesWindows.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\ApplicationWizardForm.resx">
+      <DependentUpon>ApplicationWizardForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\LicenseWindow.resx">
+      <DependentUpon>LicenseWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlantOpenToolTip.resx">
+      <DependentUpon>PlantOpenToolTip.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PlantChoose.resx">
+      <DependentUpon>PlantChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PlantServiceReport.rdlc" />
+    <EmbeddedResource Include="PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\ProtectedTextBox.resx">
+      <DependentUpon>ProtectedTextBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reminders\Reminder.resx">
+      <DependentUpon>Reminder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reminders\ReminderCreator.resx">
+      <DependentUpon>ReminderCreator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reminders\RemindersView.resx">
+      <DependentUpon>RemindersView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\RestoreDBBackupForm.resx">
+      <DependentUpon>RestoreDBBackupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RTFeditorForm.resx">
+      <DependentUpon>RTFeditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgramForm.resx">
+      <DependentUpon>ProgramForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\AppSettingsForm.resx">
+      <DependentUpon>AppSettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstituteForm.resx">
+      <DependentUpon>InstituteForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlantForm.resx">
+      <DependentUpon>PlantForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataEntries\CustomersForm.resx">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataEntries\ContractorsForm.resx">
+      <DependentUpon>ContractorsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Management\UsersManagementForm.resx">
+      <DependentUpon>UsersManagementForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TablessControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Management\UsersManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Management\UsersManagementForm.Designer.cs">
+      <DependentUpon>UsersManagementForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Visual.C++.9.0.x86">
+      <Visible>False</Visible>
+      <ProductName>Visual C++ Runtime Libraries %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Resources\user-7.png" />
+    <None Include="Resources\Vehicle.png" />
+    <None Include="Resources\up-down2.png" />
+    <None Include="Resources\up-down1.png" />
+    <None Include="Resources\Untitled-12.png" />
+    <None Include="Resources\warning.png" />
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="projectsmanagerDataSet.xsc">
+      <DependentUpon>projectsmanagerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="projectsmanagerDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>projectsmanagerDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="projectsmanagerDataSet.xss">
+      <DependentUpon>projectsmanagerDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\DB_script.txt" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\home1.png" />
+    <None Include="Resources\customers.png" />
+    <None Include="Resources\contractor.png" />
+    <None Include="Resources\download_database_256.png" />
+    <None Include="Resources\databasecrxpop5.png" />
+    <None Include="Resources\Login.png" />
+    <None Include="Resources\institutes.png" />
+    <None Include="Resources\institutes1.png" />
+    <None Include="Resources\DeleteRed.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\industrial_machine.png" />
+    <None Include="Resources\CallLog1.png" />
+    <None Include="Resources\college-5121.png" />
+    <None Include="Resources\call-icon-73580.png" />
+    <None Include="Resources\add1.png" />
+    <None Include="Resources\Button-Add-icon.png" />
+    <None Include="Resources\add-1.png" />
+    <None Include="Resources\broken-link.png" />
+    <None Include="Resources\binoculars.png" />
+    <None Include="Resources\alarm-1.png" />
+    <None Include="Resources\alarm-clock.png" />
+    <None Include="Resources\database.png" />
+    <None Include="Resources\database-1.png" />
+    <None Include="Resources\database-3.png" />
+    <None Include="Resources\add_1.png" />
+    <None Include="Resources\add-12.png" />
+    <None Include="Resources\checked-1.png" />
+    <None Include="Resources\City-icon.png" />
+    <None Include="Resources\Contact_Icon_256.png" />
+    <None Include="Resources\cntct.jpg" />
+    <None Include="Resources\customers-icon-53440.png" />
+    <None Include="Resources\calendar.png" />
+    <None Include="Resources\DeleteRed1.png" />
+    <None Include="Resources\license-manager-icon.png" />
+    <None Include="Resources\file_add.png" />
+    <None Include="Resources\icon-10.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\garbage-2.png" />
+    <None Include="Resources\garbage-1.png" />
+    <None Include="Resources\exit-1.png" />
+    <None Include="Resources\diploma.png" />
+    <None Include="Resources\idea.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\error1.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\map-location.png" />
+    <None Include="Resources\more-2.png" />
+    <None Include="Resources\plant.png" />
+    <None Include="Resources\Print-icon.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\notepad-2.png" />
+    <None Include="Resources\photo-camera.png" />
+    <None Include="Resources\Programs.png" />
+    <None Include="Resources\push-pin.png" />
+    <None Include="Resources\restore.png" />
+    <None Include="Resources\saveexit.png" />
+    <None Include="Resources\speakingcal_icon512.png" />
+    <None Include="Resources\success-icon-10.png" />
+    <None Include="Resources\refresh-icon.png" />
+    <None Include="Resources\remove_date.png" />
+    <None Include="Resources\repeat.png" />
+    <None Include="Resources\search1.png" />
+    <None Include="Resources\search-1.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\trash.png" />
+    <None Include="Resources\symbols.png" />
+    <None Include="Resources\two.png" />
+    <None Include="Resources\three.png" />
+    <None Include="Resources\smartphone-7.png" />
+    <None Include="Resources\success.png" />
+    <None Include="Resources\send.png" />
+    <None Include="Resources\success1.png" />
+    <None Include="Resources\settings-1.png" />
+    <None Include="Resources\user-6.png" />
+    <None Include="Resources\wrong-md.png" />
+    <None Include="Resources\Views_script.txt" />
+    <None Include="Resources\Tables_script.txt" />
+    <None Include="Settings1.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Lib\" />
+    <Folder Include="Resources\DatabaseScripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <None Include="Resources\SqlRestoreScript.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets" Condition="Exists('..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

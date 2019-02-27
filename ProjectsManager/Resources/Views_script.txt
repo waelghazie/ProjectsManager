@@ -1,0 +1,1160 @@
+USE [Param1]
+GO
+/****** Object:  View [dbo].[institutes_view]    Script Date: 09/22/2016 21:00:58 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[institutes_view]
+AS
+SELECT     dbo.institutes.id, dbo.institutes.name, dbo.institutes.customer AS customer_id, dbo.institutes.phone1, dbo.institutes.phone2, dbo.institutes.fax, dbo.institutes.email, 
+                      dbo.institutes.manager, dbo.institutes.address, dbo.institutes.del, dbo.customers.name AS customer, dbo.customers.mobile AS customer_mobile, 
+                      dbo.customers.manager AS customer_manager, dbo.institutes.workingdays, dbo.institutes.Mobile AS InstituteMobile, dbo.institutes.Sector, 
+                      dbo.InstituteProfessions.Profession, dbo.institutes.Profession AS ProfessionID
+FROM         dbo.institutes INNER JOIN
+                      dbo.customers ON dbo.institutes.customer = dbo.customers.id LEFT OUTER JOIN
+                      dbo.InstituteProfessions ON dbo.institutes.Profession = dbo.InstituteProfessions.id
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[36] 4[21] 2[16] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "institutes"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 215
+               Right = 218
+            End
+            DisplayFlags = 280
+            TopColumn = 4
+         End
+         Begin Table = "customers"
+            Begin Extent = 
+               Top = 33
+               Left = 359
+               Bottom = 141
+               Right = 510
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "InstituteProfessions"
+            Begin Extent = 
+               Top = 136
+               Left = 443
+               Bottom = 214
+               Right = 594
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 18
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 1500
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'institutes_view'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'institutes_view'
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  View [dbo].[PhoneCallsLogView]    Script Date: 09/22/2016 21:01:05 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[PhoneCallsLogView]
+AS
+SELECT     dbo.PhoneCallsLog.id, dbo.PhoneCallsLog.TimeStamp, dbo.institutes.name AS InstituteName, dbo.plants.name AS PlantName, dbo.PhoneCallsLog.Text, 
+                      dbo.users.displayname AS ByUserName, dbo.PhoneCallsLog.AddTime, dbo.PhoneCallsLog.InstituteID, dbo.PhoneCallsLog.PlantID, 
+                      dbo.PhoneCallsLog.ByUser AS ByUserID, dbo.customers.name AS CustomerName, dbo.PhoneCallsLog.CustomerID
+FROM         dbo.institutes RIGHT OUTER JOIN
+                      dbo.customers RIGHT OUTER JOIN
+                      dbo.PhoneCallsLog ON dbo.customers.id = dbo.PhoneCallsLog.CustomerID LEFT OUTER JOIN
+                      dbo.plants ON dbo.PhoneCallsLog.PlantID = dbo.plants.id ON dbo.institutes.id = dbo.PhoneCallsLog.InstituteID LEFT OUTER JOIN
+                      dbo.users ON dbo.PhoneCallsLog.ByUser = dbo.users.id
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[52] 4[23] 2[11] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "plants"
+            Begin Extent = 
+               Top = 10
+               Left = 10
+               Bottom = 118
+               Right = 175
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "PhoneCallsLog"
+            Begin Extent = 
+               Top = 4
+               Left = 231
+               Bottom = 230
+               Right = 382
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "customers"
+            Begin Extent = 
+               Top = 145
+               Left = 11
+               Bottom = 253
+               Right = 162
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "institutes"
+            Begin Extent = 
+               Top = 0
+               Left = 502
+               Bottom = 108
+               Right = 653
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "users"
+            Begin Extent = 
+               Top = 113
+               Left = 485
+               Bottom = 221
+               Right = 651
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 9
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 2160
+' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'PhoneCallsLogView'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'PhoneCallsLogView'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'PhoneCallsLogView'
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  View [dbo].[plants_view]    Script Date: 09/22/2016 21:01:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[plants_view]
+AS
+SELECT     dbo.contractors.name AS contractor, dbo.customers.name AS customer, dbo.institutes.name AS institute, dbo.plants.id, dbo.plants.name AS plant, 
+                      dbo.plants.technician, dbo.plants.contract_type, dbo.plants.report_name, dbo.plants.start_time, dbo.plants.end_time, dbo.plants.del, 
+                      dbo.plants.institute AS institute_id, dbo.plants.contractor AS contractor_id, dbo.contractors.phone1 AS contractor_phone1, 
+                      dbo.contractors.phone2 AS contractor_phone2, dbo.plants.PhotoFolderName, dbo.plants.LastStatus, dbo.plants.PlantDetails, dbo.customers.id AS CustomerID, 
+                      dbo.plants.PlantTypeID, dbo.PlantType.PlantType, dbo.plants.PlantStatus, dbo.plants.PlantStartingDate
+FROM         dbo.plants INNER JOIN
+                      dbo.institutes ON dbo.plants.institute = dbo.institutes.id INNER JOIN
+                      dbo.customers ON dbo.institutes.customer = dbo.customers.id LEFT OUTER JOIN
+                      dbo.PlantType ON dbo.plants.PlantTypeID = dbo.PlantType.id LEFT OUTER JOIN
+                      dbo.contractors ON dbo.plants.contractor = dbo.contractors.id
+
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[59] 4[12] 2[19] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "plants"
+            Begin Extent = 
+               Top = 0
+               Left = 279
+               Bottom = 240
+               Right = 430
+            End
+            DisplayFlags = 280
+            TopColumn = 4
+         End
+         Begin Table = "institutes"
+            Begin Extent = 
+               Top = 13
+               Left = 501
+               Bottom = 158
+               Right = 652
+            End
+            DisplayFlags = 280
+            TopColumn = 1
+         End
+         Begin Table = "customers"
+            Begin Extent = 
+               Top = 7
+               Left = 728
+               Bottom = 163
+               Right = 879
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "PlantType"
+            Begin Extent = 
+               Top = 166
+               Left = 23
+               Bottom = 244
+               Right = 174
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "contractors"
+            Begin Extent = 
+               Top = 19
+               Left = 14
+               Bottom = 160
+               Right = 165
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 1530
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+        ' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'plants_view'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N' Or = 1350
+      End
+   End
+End
+' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'plants_view'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'plants_view'
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  View [dbo].[PlantServiceView]    Script Date: 09/22/2016 21:01:20 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[PlantServiceView]
+AS
+SELECT     dbo.PlantService.id AS VisitID, dbo.PlantService.InstituteID, dbo.institutes.name AS InstituteName, dbo.PlantService.PlantID, dbo.plants.name AS PlantName, 
+                      dbo.PlantService.VisitText, dbo.PlantService.ServiceNote, dbo.PlantService.ProgramID, dbo.Programs.ProgramDate, dbo.PlantService.ServiceText, 
+                      dbo.Technicians.TechnicianName, dbo.PlantService.VisitNote, dbo.institutes.address, dbo.customers.name AS CustomerName, dbo.PlantService.CustomerID, 
+                      dbo.Programs.TechnicianID, dbo.Programs.AccompanyingID, Technicians_1.TechnicianName AS AccompanyingName, dbo.PlantService.RecordOrderNO
+FROM         dbo.institutes RIGHT OUTER JOIN
+                      dbo.customers RIGHT OUTER JOIN
+                      dbo.PlantService ON dbo.customers.id = dbo.PlantService.CustomerID LEFT OUTER JOIN
+                      dbo.Programs ON dbo.PlantService.ProgramID = dbo.Programs.id LEFT OUTER JOIN
+                      dbo.plants ON dbo.PlantService.PlantID = dbo.plants.id ON dbo.institutes.id = dbo.PlantService.InstituteID LEFT OUTER JOIN
+                      dbo.Technicians ON dbo.Programs.TechnicianID = dbo.Technicians.id LEFT OUTER JOIN
+                      dbo.Technicians AS Technicians_1 ON dbo.Programs.AccompanyingID = Technicians_1.id
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[43] 4[25] 2[14] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = -96
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "institutes"
+            Begin Extent = 
+               Top = 18
+               Left = 28
+               Bottom = 170
+               Right = 183
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "customers"
+            Begin Extent = 
+               Top = 12
+               Left = 591
+               Bottom = 120
+               Right = 742
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "PlantService"
+            Begin Extent = 
+               Top = 21
+               Left = 295
+               Bottom = 201
+               Right = 446
+            End
+            DisplayFlags = 280
+            TopColumn = 2
+         End
+         Begin Table = "Programs"
+            Begin Extent = 
+               Top = 259
+               Left = 238
+               Bottom = 460
+               Right = 433
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "plants"
+            Begin Extent = 
+               Top = 135
+               Left = 566
+               Bottom = 281
+               Right = 735
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Technicians"
+            Begin Extent = 
+               Top = 203
+               Left = 8
+               Bottom = 281
+               Right = 165
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Technicians_1"
+            Begin Extent = 
+               Top = 291
+               Left = 21
+               Bottom = 369
+               Right = 178
+            End
+         ' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'PlantServiceView'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'   DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 12
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 1545
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'PlantServiceView'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'PlantServiceView'
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  View [dbo].[ProgramsView]    Script Date: 09/22/2016 21:01:28 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[ProgramsView]
+AS
+SELECT     dbo.Programs.id, dbo.Programs.ProgramDate, dbo.Technicians.TechnicianName, dbo.Vehicles.VehicleName, dbo.Programs.ProgramText, 
+                      Technicians_2.TechnicianName AS AccompanyingName, Technicians_1.TechnicianName AS DriverName
+FROM         dbo.Programs LEFT OUTER JOIN
+                      dbo.Vehicles ON dbo.Programs.VehicleID = dbo.Vehicles.id LEFT OUTER JOIN
+                      dbo.Technicians AS Technicians_1 ON dbo.Programs.DriverID = Technicians_1.id LEFT OUTER JOIN
+                      dbo.Technicians AS Technicians_2 ON dbo.Programs.AccompanyingID = Technicians_2.id LEFT OUTER JOIN
+                      dbo.Technicians ON dbo.Programs.TechnicianID = dbo.Technicians.id
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[50] 4[9] 2[12] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Programs"
+            Begin Extent = 
+               Top = 6
+               Left = 227
+               Bottom = 231
+               Right = 425
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Technicians"
+            Begin Extent = 
+               Top = 7
+               Left = 507
+               Bottom = 85
+               Right = 664
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Vehicles"
+            Begin Extent = 
+               Top = 6
+               Left = 26
+               Bottom = 84
+               Right = 177
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Technicians_2"
+            Begin Extent = 
+               Top = 158
+               Left = 480
+               Bottom = 236
+               Right = 637
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "Technicians_1"
+            Begin Extent = 
+               Top = 152
+               Left = 23
+               Bottom = 230
+               Right = 180
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 9
+         Width = 284
+         Width = 1500
+         Width = 2430
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = ' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'ProgramsView'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'ProgramsView'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'ProgramsView'
+
+
+
+
+
+
+
+USE [Param1]
+GO
+/****** Object:  View [dbo].[RemindersView]    Script Date: 09/22/2016 21:01:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[RemindersView]
+AS
+SELECT     dbo.reminders.id, dbo.reminders.Title, dbo.reminders.Text, dbo.reminders.TimeStamp, dbo.reminders.TargetTime, dbo.reminders.Importance, dbo.reminders.Dismiss, 
+                      FromUserTable.displayname AS FromUserName, dbo.institutes.name AS InstituteName, dbo.plants.name AS PlantName, dbo.customers.name AS CustomerName, 
+                      dbo.customers.id AS CustomerID, dbo.institutes.id AS InstituteID, dbo.reminders.PlantId, dbo.reminders.FromUserID, dbo.reminders.ToUserID, 
+                      ToUsersTable.displayname
+FROM         dbo.reminders LEFT OUTER JOIN
+                      dbo.users AS FromUserTable ON dbo.reminders.FromUserID = FromUserTable.id LEFT OUTER JOIN
+                      dbo.users AS ToUsersTable ON dbo.reminders.ToUserID = ToUsersTable.id LEFT OUTER JOIN
+                      dbo.plants ON dbo.reminders.PlantId = dbo.plants.id LEFT OUTER JOIN
+                      dbo.institutes INNER JOIN
+                      dbo.customers ON dbo.institutes.customer = dbo.customers.id ON dbo.plants.institute = dbo.institutes.id
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[45] 4[22] 2[24] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "reminders"
+            Begin Extent = 
+               Top = 9
+               Left = 342
+               Bottom = 230
+               Right = 493
+            End
+            DisplayFlags = 280
+            TopColumn = 5
+         End
+         Begin Table = "FromUserTable"
+            Begin Extent = 
+               Top = 9
+               Left = 31
+               Bottom = 117
+               Right = 197
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "plants"
+            Begin Extent = 
+               Top = 143
+               Left = 680
+               Bottom = 251
+               Right = 831
+            End
+            DisplayFlags = 280
+            TopColumn = 1
+         End
+         Begin Table = "institutes"
+            Begin Extent = 
+               Top = 268
+               Left = 361
+               Bottom = 389
+               Right = 527
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "customers"
+            Begin Extent = 
+               Top = 285
+               Left = 124
+               Bottom = 393
+               Right = 275
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "ToUsersTable"
+            Begin Extent = 
+               Top = 6
+               Left = 622
+               Bottom = 114
+               Right = 788
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 16
+         Width = 284
+         Width = 315
+         Wid' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'RemindersView'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'th = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 2535
+         Alias = 1800
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'RemindersView'
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 ,@level0type=N'SCHEMA', @level0name=N'dbo', @level1type=N'VIEW', @level1name=N'RemindersView'
+
+
+
+
+
+
+
+

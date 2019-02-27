@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="projectsmanagerDataSet" targetNamespace="http://tempuri.org/projectsmanagerDataSet.xsd" xmlns:mstns="http://tempuri.org/projectsmanagerDataSet.xsd" xmlns="http://tempuri.org/projectsmanagerDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="projectsmanagerConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="projectsmanagerConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ProjectsManager.Properties.Settings.GlobalReference.Default.projectsmanagerConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProgramsViewTableAdapter" GeneratorDataComponentClassName="ProgramsViewTableAdapter" Name="ProgramsView" UserDataComponentName="ProgramsViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="projectsmanagerConnectionString (Settings)" DbObjectName="projectsmanager.dbo.ProgramsView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, ProgramDate, TechnicianName, VehicleName, ProgramText, AccompanyingName, DriverName FROM dbo.ProgramsView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="ProgramDate" DataSetColumn="ProgramDate" />
+              <Mapping SourceColumn="TechnicianName" DataSetColumn="TechnicianName" />
+              <Mapping SourceColumn="VehicleName" DataSetColumn="VehicleName" />
+              <Mapping SourceColumn="ProgramText" DataSetColumn="ProgramText" />
+              <Mapping SourceColumn="AccompanyingName" DataSetColumn="AccompanyingName" />
+              <Mapping SourceColumn="DriverName" DataSetColumn="DriverName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PlantServiceViewTableAdapter" GeneratorDataComponentClassName="PlantServiceViewTableAdapter" Name="PlantServiceView" UserDataComponentName="PlantServiceViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="projectsmanagerConnectionString (Settings)" DbObjectName="projectsmanager.dbo.PlantServiceView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        InstituteName, PlantName, VisitText, VisitNote, address, CustomerName, RecordOrderNO,VisitID
+FROM            PlantServiceView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="InstituteName" DataSetColumn="InstituteName" />
+              <Mapping SourceColumn="PlantName" DataSetColumn="PlantName" />
+              <Mapping SourceColumn="VisitText" DataSetColumn="VisitText" />
+              <Mapping SourceColumn="VisitNote" DataSetColumn="VisitNote" />
+              <Mapping SourceColumn="address" DataSetColumn="address" />
+              <Mapping SourceColumn="CustomerName" DataSetColumn="CustomerName" />
+              <Mapping SourceColumn="RecordOrderNO" DataSetColumn="RecordOrderNO" />
+              <Mapping SourceColumn="VisitID" DataSetColumn="VisitID" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="projectsmanagerDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="projectsmanagerDataSet" msprop:Generator_UserDSName="projectsmanagerDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ProgramsView" msprop:Generator_UserTableName="ProgramsView" msprop:Generator_RowEvArgName="ProgramsViewRowChangeEvent" msprop:Generator_TableVarName="tableProgramsView" msprop:Generator_TablePropName="ProgramsView" msprop:Generator_RowDeletingName="ProgramsViewRowDeleting" msprop:Generator_RowChangingName="ProgramsViewRowChanging" msprop:Generator_RowDeletedName="ProgramsViewRowDeleted" msprop:Generator_RowEvHandlerName="ProgramsViewRowChangeEventHandler" msprop:Generator_TableClassName="ProgramsViewDataTable" msprop:Generator_RowChangedName="ProgramsViewRowChanged" msprop:Generator_RowClassName="ProgramsViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="ProgramDate" msprop:Generator_ColumnVarNameInTable="columnProgramDate" msprop:Generator_ColumnPropNameInRow="ProgramDate" msprop:Generator_ColumnPropNameInTable="ProgramDateColumn" msprop:Generator_UserColumnName="ProgramDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TechnicianName" msprop:Generator_ColumnVarNameInTable="columnTechnicianName" msprop:Generator_ColumnPropNameInRow="TechnicianName" msprop:Generator_ColumnPropNameInTable="TechnicianNameColumn" msprop:Generator_UserColumnName="TechnicianName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VehicleName" msprop:Generator_ColumnVarNameInTable="columnVehicleName" msprop:Generator_ColumnPropNameInRow="VehicleName" msprop:Generator_ColumnPropNameInTable="VehicleNameColumn" msprop:Generator_UserColumnName="VehicleName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProgramText" msprop:Generator_ColumnVarNameInTable="columnProgramText" msprop:Generator_ColumnPropNameInRow="ProgramText" msprop:Generator_ColumnPropNameInTable="ProgramTextColumn" msprop:Generator_UserColumnName="ProgramText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccompanyingName" msprop:Generator_ColumnVarNameInTable="columnAccompanyingName" msprop:Generator_ColumnPropNameInRow="AccompanyingName" msprop:Generator_ColumnPropNameInTable="AccompanyingNameColumn" msprop:Generator_UserColumnName="AccompanyingName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DriverName" msprop:Generator_ColumnVarNameInTable="columnDriverName" msprop:Generator_ColumnPropNameInRow="DriverName" msprop:Generator_ColumnPropNameInTable="DriverNameColumn" msprop:Generator_UserColumnName="DriverName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PlantServiceView" msprop:Generator_UserTableName="PlantServiceView" msprop:Generator_RowEvArgName="PlantServiceViewRowChangeEvent" msprop:Generator_TableVarName="tablePlantServiceView" msprop:Generator_TablePropName="PlantServiceView" msprop:Generator_RowDeletingName="PlantServiceViewRowDeleting" msprop:Generator_RowChangingName="PlantServiceViewRowChanging" msprop:Generator_RowDeletedName="PlantServiceViewRowDeleted" msprop:Generator_RowEvHandlerName="PlantServiceViewRowChangeEventHandler" msprop:Generator_TableClassName="PlantServiceViewDataTable" msprop:Generator_RowChangedName="PlantServiceViewRowChanged" msprop:Generator_RowClassName="PlantServiceViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InstituteName" msprop:Generator_ColumnVarNameInTable="columnInstituteName" msprop:Generator_ColumnPropNameInRow="InstituteName" msprop:Generator_ColumnPropNameInTable="InstituteNameColumn" msprop:Generator_UserColumnName="InstituteName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PlantName" msprop:Generator_ColumnVarNameInTable="columnPlantName" msprop:Generator_ColumnPropNameInRow="PlantName" msprop:Generator_ColumnPropNameInTable="PlantNameColumn" msprop:Generator_UserColumnName="PlantName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitText" msprop:Generator_ColumnVarNameInTable="columnVisitText" msprop:Generator_ColumnPropNameInRow="VisitText" msprop:Generator_ColumnPropNameInTable="VisitTextColumn" msprop:Generator_UserColumnName="VisitText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitNote" msprop:Generator_ColumnVarNameInTable="columnVisitNote" msprop:Generator_ColumnPropNameInRow="VisitNote" msprop:Generator_ColumnPropNameInTable="VisitNoteColumn" msprop:Generator_UserColumnName="VisitNote" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="address" msprop:Generator_ColumnVarNameInTable="columnaddress" msprop:Generator_ColumnPropNameInRow="address" msprop:Generator_ColumnPropNameInTable="addressColumn" msprop:Generator_UserColumnName="address" type="xs:string" minOccurs="0" />
+              <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RecordOrderNO" msprop:Generator_ColumnVarNameInTable="columnRecordOrderNO" msprop:Generator_ColumnPropNameInRow="RecordOrderNO" msprop:Generator_ColumnPropNameInTable="RecordOrderNOColumn" msprop:Generator_UserColumnName="RecordOrderNO" type="xs:int" minOccurs="0" />
+              <xs:element name="VisitID" msprop:Generator_ColumnVarNameInTable="columnVisitID" msprop:Generator_ColumnPropNameInRow="VisitID" msprop:Generator_ColumnPropNameInTable="VisitIDColumn" msprop:Generator_UserColumnName="VisitID" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ProgramsView" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="PlantServiceView_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:PlantServiceView" />
+      <xs:field xpath="mstns:VisitID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
