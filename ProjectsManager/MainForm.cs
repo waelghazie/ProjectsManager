@@ -104,7 +104,7 @@ namespace ProjectsManager
 
             if (CheckOS32or64.IsOS64Bit())
             {
-                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Wow6432Node\\Sharp Code\\Settings", true))
+                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Wow6432Node\\" +  Settings1.Default.ApplicationManufacturer + "\\Settings", true))
                     if (myKey != null)
                         if (myKey.GetValue("FirstRun", 0, RegistryValueOptions.None).ToString() == "1")
                         {
@@ -120,7 +120,7 @@ namespace ProjectsManager
             }
             else if (!CheckOS32or64.IsOS64Bit())
             {
-                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Sharp Code\\Settings", true))
+                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\" + Settings1.Default.ApplicationManufacturer + "\\Settings", true))
                     if (myKey != null)
                         if (myKey.GetValue("FirstRun", 0, RegistryValueOptions.None).ToString() == "1")
                         {

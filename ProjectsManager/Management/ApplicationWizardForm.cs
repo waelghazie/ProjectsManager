@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
@@ -287,17 +283,17 @@ namespace ProjectsManager
             }
         }
 
-        private void ModifyRegistry()       //Write "1" in \HKEY_LOCAL_MACHINE\SOFTWARE\Sharp Code\Settings\FirstRun 
+        private void ModifyRegistry()       //Write "1" in \HKEY_LOCAL_MACHINE\SOFTWARE\ApplicationManufacturer\Settings\FirstRun 
         {
             if (CheckOS32or64.IsOS64Bit())
             {
-                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\WOW6432Node\\Sharp Code\\Settings", true))
+                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\WOW6432Node\\" + Settings1.Default.ApplicationManufacturer + "\\Settings", true))
                     if (myKey != null)
                         myKey.SetValue("FirstRun", "0", RegistryValueKind.String);
             }
             else if (!CheckOS32or64.IsOS64Bit())
             {
-                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Sharp Code\\Settings", true))
+                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\" + Settings1.Default.ApplicationManufacturer + "\\Settings", true))
                     if (myKey != null)
                         myKey.SetValue("FirstRun", "0", RegistryValueKind.String);
             }

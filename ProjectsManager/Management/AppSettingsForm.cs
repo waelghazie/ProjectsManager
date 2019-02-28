@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
@@ -18,8 +17,7 @@ namespace ProjectsManager
         {
             InitializeComponent();
         }
-        
-        
+
         DataTable DatabasesTable;
         List<string> ServersList;
 
@@ -97,13 +95,13 @@ namespace ProjectsManager
 
                     if (CheckOS32or64.IsOS64Bit())
                     {
-                        using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Wow6432Node\\Sharp Code\\Settings", true))
+                        using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Wow6432Node\\" + Settings1.Default.ApplicationManufacturer + "\\Settings", true))
                             if (myKey != null)
                                 myKey.SetValue("FirstRun", "0", RegistryValueKind.String);
                     }
                     else if (!CheckOS32or64.IsOS64Bit())
                     {
-                        using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Sharp Code\\Settings", true))
+                        using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\" + Settings1.Default.ApplicationManufacturer + "\\Settings", true))
                             if (myKey != null)
                                 myKey.SetValue("FirstRun", "0", RegistryValueKind.String);
                     }

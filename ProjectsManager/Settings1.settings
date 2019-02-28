@@ -56,5 +56,8 @@
     <Setting Name="APPFRUN" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="ApplicationManufacturer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Well Code</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
