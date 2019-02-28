@@ -21,7 +21,7 @@ namespace ProjectsManager
         DataTable DatabasesTable;
         List<string> ServersList;
 
-        bool ServersListed = false;
+        bool ServersAreListed = false;
         bool DatabasesListed = false;
 
         public bool SuccessConnect = false;
@@ -33,7 +33,7 @@ namespace ProjectsManager
             ServerComboBox.Text = Settings1.Default.SQLServer;
             DatabaseComboBox.Text = Settings1.Default.DatabaseName;
             UserNameTextBox.Text = Settings1.Default.ServerUser;
-            PassTextBox.Text = Encryption.Decrypt(Settings1.Default.ServerPassword);
+            PassTextBox.Text = Settings1.Default.SqlPassword;
             TimeoutTextBox.Text = Convert.ToString(Settings1.Default.ServerConnectTimeout);
             textBox4.Text = Convert.ToString(Settings1.Default.BackupTimer);
             textBox3.Text = Convert.ToString(Settings1.Default.ReminderTimer);
@@ -83,7 +83,7 @@ namespace ProjectsManager
                 Settings1.Default.SQLServer = ServerComboBox.Text;
                 Settings1.Default.DatabaseName = DatabaseComboBox.Text;
                 Settings1.Default.ServerUser = UserNameTextBox.Text;
-                Settings1.Default.ServerPassword = Encryption.Encrypt(PassTextBox.Text);
+                Settings1.Default.SqlPassword = PassTextBox.Text;
                 Settings1.Default.ServerConnectTimeout = Convert.ToInt32(TimeoutTextBox.Text);
                 Settings1.Default.LoginAsADUser = LoginAsADuserRadioButton.Checked;
                 Settings1.Default.BackupTimer = Convert.ToInt32(textBox4.Text);
@@ -162,7 +162,7 @@ namespace ProjectsManager
         {
             //get list of servers
 
-            if (!ServersListed)
+            if (!ServersAreListed)
             {
                 ProgressBar1.Visible = true;
                 if (!backgroundWorker1.IsBusy)
@@ -188,7 +188,7 @@ namespace ProjectsManager
             {
                 ServersList.Add(server[DT.Columns["ServerName"]].ToString());
             }
-            ServersListed = true;
+            ServersAreListed = true;
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

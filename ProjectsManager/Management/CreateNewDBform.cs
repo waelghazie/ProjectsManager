@@ -128,7 +128,7 @@ namespace ProjectsManager
 
                 Settings1.Default.SQLServer = SelectedServer;
                 Settings1.Default.ServerUser = UsernameTextBox.Text;
-                Settings1.Default.ServerPassword = Encryption.Encrypt(PasswordTextBox.Text);
+                Settings1.Default.SqlPassword = PasswordTextBox.Text;
                 Settings1.Default.ReportsFolder = "";
                 Settings1.Default.BackupFolder = "";
                 Settings1.Default.DatabaseName = SelectedDB;

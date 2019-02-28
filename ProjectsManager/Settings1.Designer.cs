@@ -85,13 +85,13 @@ namespace ProjectsManager {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ServerPassword {
+        [global::System.Configuration.DefaultSettingValueAttribute("Proj3ct$M@nag3r")]
+        public string SqlPassword {
             get {
-                return ((string)(this["ServerPassword"]));
+                return ((string)(this["SqlPassword"]));
             }
             set {
-                this["ServerPassword"] = value;
+                this["SqlPassword"] = value;
             }
         }
         

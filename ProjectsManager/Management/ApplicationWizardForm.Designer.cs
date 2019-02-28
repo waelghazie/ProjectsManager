@@ -67,6 +67,10 @@
             this.PasswordCreateTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.BackupPathButton = new System.Windows.Forms.Button();
+            this.BackupPathTextBox = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
@@ -84,20 +88,16 @@
             this.label22 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.SuccessLabel = new System.Windows.Forms.Label();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.label23 = new System.Windows.Forms.Label();
-            this.BackupPathButton = new System.Windows.Forms.Button();
-            this.BackupPathTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tablessControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.tabPage8.SuspendLayout();
             this.SuspendLayout();
             // 
             // ExitButton
@@ -208,7 +208,7 @@
             this.label3.Size = new System.Drawing.Size(221, 52);
             this.label3.TabIndex = 7;
             this.label3.Text = "اهلا بك في معالج اعداد برنامج مدير المشاريع !\r\n\r\n\r\nهذا البرنامج يتطلب قاعدة بيانا" +
-                "ت SQL Server .\r\n";
+    "ت SQL Server .\r\n";
             // 
             // tabPage5
             // 
@@ -513,6 +513,48 @@
             this.label4.TabIndex = 60;
             this.label4.Text = "اسم المستخدم";
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.label23);
+            this.tabPage8.Controls.Add(this.BackupPathButton);
+            this.tabPage8.Controls.Add(this.BackupPathTextBox);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(468, 385);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "create 4";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // label23
+            // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(249, 30);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(211, 26);
+            this.label23.TabIndex = 17;
+            this.label23.Text = "يرجى تحديد  مسار المجلد للنسخ الاحتياطي \r\n(يجب أن يكون مسار شبكة UNC Path)\r\n";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // BackupPathButton
+            // 
+            this.BackupPathButton.Location = new System.Drawing.Point(28, 110);
+            this.BackupPathButton.Name = "BackupPathButton";
+            this.BackupPathButton.Size = new System.Drawing.Size(29, 23);
+            this.BackupPathButton.TabIndex = 16;
+            this.BackupPathButton.Text = ". .";
+            this.BackupPathButton.UseVisualStyleBackColor = true;
+            this.BackupPathButton.Click += new System.EventHandler(this.BackupPathButton_Click);
+            // 
+            // BackupPathTextBox
+            // 
+            this.BackupPathTextBox.Location = new System.Drawing.Point(63, 112);
+            this.BackupPathTextBox.Name = "BackupPathTextBox";
+            this.BackupPathTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.BackupPathTextBox.Size = new System.Drawing.Size(394, 20);
+            this.BackupPathTextBox.TabIndex = 15;
+            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.button2);
@@ -645,11 +687,11 @@
             // AppLoginRadioButton
             // 
             this.AppLoginRadioButton.AutoSize = true;
-            this.AppLoginRadioButton.Location = new System.Drawing.Point(135, 108);
+            this.AppLoginRadioButton.Location = new System.Drawing.Point(156, 108);
             this.AppLoginRadioButton.Name = "AppLoginRadioButton";
-            this.AppLoginRadioButton.Size = new System.Drawing.Size(281, 17);
+            this.AppLoginRadioButton.Size = new System.Drawing.Size(273, 17);
             this.AppLoginRadioButton.TabIndex = 5;
-            this.AppLoginRadioButton.Text = "اسم مستخدم وكلمة مرور (Application Authentication)";
+            this.AppLoginRadioButton.Text = "اسم مستخدم وكلمة مرور Application Authentication";
             this.AppLoginRadioButton.UseVisualStyleBackColor = true;
             // 
             // LoginAsADuserRadioButton
@@ -657,9 +699,9 @@
             this.LoginAsADuserRadioButton.AutoSize = true;
             this.LoginAsADuserRadioButton.Location = new System.Drawing.Point(160, 85);
             this.LoginAsADuserRadioButton.Name = "LoginAsADuserRadioButton";
-            this.LoginAsADuserRadioButton.Size = new System.Drawing.Size(256, 17);
+            this.LoginAsADuserRadioButton.Size = new System.Drawing.Size(269, 17);
             this.LoginAsADuserRadioButton.TabIndex = 4;
-            this.LoginAsADuserRadioButton.Text = "حساب ويندوز من مجال (Windows Authentication)";
+            this.LoginAsADuserRadioButton.Text = "حساب مجال ويندوز Windows Domain Authentication";
             this.LoginAsADuserRadioButton.UseVisualStyleBackColor = true;
             // 
             // label22
@@ -690,48 +732,6 @@
             this.SuccessLabel.Size = new System.Drawing.Size(413, 115);
             this.SuccessLabel.TabIndex = 0;
             this.SuccessLabel.Text = "تم بنجاح";
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.label23);
-            this.tabPage8.Controls.Add(this.BackupPathButton);
-            this.tabPage8.Controls.Add(this.BackupPathTextBox);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(468, 385);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "create 4";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // label23
-            // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(249, 30);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(211, 26);
-            this.label23.TabIndex = 17;
-            this.label23.Text = "يرجى تحديد  مسار المجلد للنسخ الاحتياطي \r\n(يجب أن يكون مسار شبكة UNC Path)\r\n";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // BackupPathButton
-            // 
-            this.BackupPathButton.Location = new System.Drawing.Point(28, 110);
-            this.BackupPathButton.Name = "BackupPathButton";
-            this.BackupPathButton.Size = new System.Drawing.Size(29, 23);
-            this.BackupPathButton.TabIndex = 16;
-            this.BackupPathButton.Text = ". .";
-            this.BackupPathButton.UseVisualStyleBackColor = true;
-            this.BackupPathButton.Click += new System.EventHandler(this.BackupPathButton_Click);
-            // 
-            // BackupPathTextBox
-            // 
-            this.BackupPathTextBox.Location = new System.Drawing.Point(63, 112);
-            this.BackupPathTextBox.Name = "BackupPathTextBox";
-            this.BackupPathTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BackupPathTextBox.Size = new System.Drawing.Size(394, 20);
-            this.BackupPathTextBox.TabIndex = 15;
             // 
             // ApplicationWizardForm
             // 
@@ -768,13 +768,13 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage8.ResumeLayout(false);
-            this.tabPage8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

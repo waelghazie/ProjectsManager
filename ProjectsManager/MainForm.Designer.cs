@@ -514,7 +514,7 @@
             // 
             // TrialTimer
             // 
-            this.TrialTimer.Interval = 300000;
+            this.TrialTimer.Interval = 3600000;
             this.TrialTimer.Tick += new System.EventHandler(this.TrialTimer_Tick);
             // 
             // button7

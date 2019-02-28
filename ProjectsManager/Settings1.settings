@@ -17,8 +17,8 @@
     <Setting Name="ServerUser" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="ServerPassword" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="SqlPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Proj3ct$M@nag3r</Value>
     </Setting>
     <Setting Name="ServerConnectTimeout" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>

@@ -158,13 +158,13 @@ namespace ProjectsManager
                     if (SQLexprRadioButton.Checked)
                     {
                         
-                        ServerCreateComboBox.Text = System.Windows.Forms.SystemInformation.ComputerName + @"\SQLEXPRESS2012";
+                        ServerCreateComboBox.Text = SystemInformation.ComputerName + @"\SQLEXPRESS2012";
                         if (!CheckOS32or64.IsOS64Bit())
                             PathCreateTextBox.Text = @"C:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS2012\MSSQL\DATA";
                         else if (CheckOS32or64.IsOS64Bit())
                             PathCreateTextBox.Text = @"C:\Program Files (x86)\Microsoft SQL Server\MSSQL11.SQLEXPRESS2012\MSSQL\DATA";
                         UsernameCreateTextBox.Text = @"sa";
-                        PasswordCreateTextBox.Text = @"Proj3ct$M@nag3r";
+                        PasswordCreateTextBox.Text = Settings1.Default.SqlPassword;
                         tablessControl.SelectedIndex = 3;
                         DatabaseCreateTextBox.Focus();
                     }
@@ -196,7 +196,7 @@ namespace ProjectsManager
                     break;
                 case 4:         //Choose backup folder
                     if (System.IO.Directory.Exists(BackupPathTextBox.Text))
-                        tablessControl.SelectedIndex = 6;
+                        tablessControl.SelectedIndex = 7;
 
                     break;
                 case 5:          //Conenct to existing Database
@@ -226,7 +226,7 @@ namespace ProjectsManager
                         Settings1.Default.SQLServer = ServerCreateComboBox.Text;
                         Settings1.Default.DatabaseName = DatabaseCreateTextBox.Text;
                         Settings1.Default.ServerUser = UsernameCreateTextBox.Text;
-                        Settings1.Default.ServerPassword = Encryption.Encrypt(PasswordCreateTextBox.Text);
+                        Settings1.Default.SqlPassword = PasswordCreateTextBox.Text;
                         Settings1.Default.ServerConnectTimeout = 15;
                         Settings1.Default.LoginAsADUser = LoginAsADuserRadioButton.Checked;
                         
@@ -258,7 +258,7 @@ namespace ProjectsManager
                         Settings1.Default.SQLServer = ServerConnectComboBox.Text;
                         Settings1.Default.DatabaseName = DatabaseConnectComboBox.Text;
                         Settings1.Default.ServerUser = UsernameConnectTextBox.Text;
-                        Settings1.Default.ServerPassword = Encryption.Encrypt(PasswordConnectTextBox.Text);
+                        Settings1.Default.SqlPassword = PasswordConnectTextBox.Text;
                         Settings1.Default.ServerConnectTimeout = 15;
                         Settings1.Default.LoginAsADUser = LoginAsADuserRadioButton.Checked;
                         Settings1.Default.Save();
