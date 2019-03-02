@@ -148,7 +148,7 @@
             // SaveButton
             // 
             this.SaveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveButton.Image = global::ProjectsManager.Properties.Resources.push_pin;
+            this.SaveButton.Image = global::ProjectsManager.Properties.Resources.push_pin_img;
             this.SaveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
@@ -159,7 +159,7 @@
             // ExitButton
             // 
             this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ExitButton.Image = global::ProjectsManager.Properties.Resources.exit_1;
+            this.ExitButton.Image = global::ProjectsManager.Properties.Resources.exit_img;
             this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);

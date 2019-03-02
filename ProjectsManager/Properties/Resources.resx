@@ -124,7 +124,7 @@
   <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="customers-icon-53440" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="customers_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\customers-icon-53440.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="databasecrxpop5" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -133,7 +133,7 @@
   <data name="plant" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plant.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="database-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="database_img_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database-3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="binoculars" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -160,31 +160,31 @@
   <data name="idea" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\idea.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="exit-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="exit_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exit-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="file_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\file_add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user-6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="user_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-6.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DB_script" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DB_script.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1256</value>
   </data>
-  <data name="broken-link" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="broken_link" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\broken-link.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="garbage-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="garbage_2_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\garbage-2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user-7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="user2_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user-7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="up-down2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="up_down2_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\up-down2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="push-pin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="push_pin_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\push-pin.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="success1" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -196,7 +196,7 @@
   <data name="download_database_256" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download_database_256.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="add-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="add_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add-12.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="error1" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -208,25 +208,25 @@
   <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="database-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="database_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\database-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="three" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\three.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="search_1_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="checked-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="checked_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checked-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="garbage-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="garbage_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\garbage-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="more-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="more_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\more-2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -247,7 +247,7 @@
   <data name="success" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\success.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="success-icon-10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="success_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\success-icon-10.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -256,10 +256,10 @@
   <data name="repeat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\repeat.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="map-location" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="map_location_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\map-location.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Untitled-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="background_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Untitled-12.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="City_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -268,13 +268,13 @@
   <data name="Tables_script" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Tables_script.txt;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1256</value>
   </data>
-  <data name="photo-camera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="camera_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\photo-camera.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\print.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="up-down1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="up_down_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\up-down1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CallLog" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -283,13 +283,13 @@
   <data name="CallLog1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CallLog1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="alarm-clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="alarm_clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alarm-clock.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="alarm-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="alarm_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\alarm-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="notepad-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="notepad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\notepad-2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="two" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -310,7 +310,7 @@
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icon-10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="stop_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon-10.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -325,13 +325,16 @@
   <data name="Vehicle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Vehicle.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="license-manager-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="license_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\license-manager-icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="settings_img" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SqlRestoreScript" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SqlRestoreScript.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="favicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\favicon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

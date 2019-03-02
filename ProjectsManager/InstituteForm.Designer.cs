@@ -200,7 +200,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::ProjectsManager.Properties.Resources.customers_icon_53440;
+            this.pictureBox3.Image = global::ProjectsManager.Properties.Resources.customers_img;
             this.pictureBox3.Location = new System.Drawing.Point(289, 60);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(50, 50);
@@ -832,7 +832,7 @@
             // 
             this.NewPlantButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.NewPlantButton.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewPlantButton.Image = global::ProjectsManager.Properties.Resources.add_1;
+            this.NewPlantButton.Image = global::ProjectsManager.Properties.Resources.add_img;
             this.NewPlantButton.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.NewPlantButton.Name = "NewPlantButton";
             this.NewPlantButton.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -859,7 +859,7 @@
             // DeletePlantButton
             // 
             this.DeletePlantButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.DeletePlantButton.Image = global::ProjectsManager.Properties.Resources.garbage_1;
+            this.DeletePlantButton.Image = global::ProjectsManager.Properties.Resources.garbage_img;
             this.DeletePlantButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeletePlantButton.Name = "DeletePlantButton";
             this.DeletePlantButton.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -910,7 +910,7 @@
             // DeleteButton
             // 
             this.DeleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.DeleteButton.Image = global::ProjectsManager.Properties.Resources.garbage_1;
+            this.DeleteButton.Image = global::ProjectsManager.Properties.Resources.garbage_img;
             this.DeleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
@@ -932,7 +932,7 @@
             // ExitButton
             // 
             this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ExitButton.Image = global::ProjectsManager.Properties.Resources.exit_1;
+            this.ExitButton.Image = global::ProjectsManager.Properties.Resources.exit_img;
             this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);

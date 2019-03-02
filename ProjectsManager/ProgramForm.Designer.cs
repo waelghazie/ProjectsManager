@@ -514,7 +514,7 @@
             // MoveDownButton
             // 
             this.MoveDownButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MoveDownButton.BackgroundImage = global::ProjectsManager.Properties.Resources.up_down2;
+            this.MoveDownButton.BackgroundImage = global::ProjectsManager.Properties.Resources.up_down2_img;
             this.MoveDownButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.MoveDownButton.FlatAppearance.BorderSize = 0;
             this.MoveDownButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -528,7 +528,7 @@
             // MoveUPButton
             // 
             this.MoveUPButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MoveUPButton.BackgroundImage = global::ProjectsManager.Properties.Resources.up_down1;
+            this.MoveUPButton.BackgroundImage = global::ProjectsManager.Properties.Resources.up_down_img;
             this.MoveUPButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.MoveUPButton.FlatAppearance.BorderSize = 0;
             this.MoveUPButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -572,7 +572,7 @@
             // DeleteButton
             // 
             this.DeleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.DeleteButton.Image = global::ProjectsManager.Properties.Resources.garbage_1;
+            this.DeleteButton.Image = global::ProjectsManager.Properties.Resources.garbage_img;
             this.DeleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(36, 36);
@@ -593,7 +593,7 @@
             // ExitButton
             // 
             this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ExitButton.Image = global::ProjectsManager.Properties.Resources.exit_1;
+            this.ExitButton.Image = global::ProjectsManager.Properties.Resources.exit_img;
             this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
@@ -604,7 +604,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox6.Image = global::ProjectsManager.Properties.Resources.map_location;
+            this.pictureBox6.Image = global::ProjectsManager.Properties.Resources.map_location_img;
             this.pictureBox6.Location = new System.Drawing.Point(22, 121);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(50, 50);

@@ -236,7 +236,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ProjectsManager.Properties.Resources.database_3;
+            this.pictureBox1.Image = global::ProjectsManager.Properties.Resources.database_img_1;
             this.pictureBox1.Location = new System.Drawing.Point(454, 116);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(86, 81);

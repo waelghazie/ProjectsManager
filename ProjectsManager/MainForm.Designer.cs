@@ -1118,7 +1118,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::ProjectsManager.Properties.Resources.Untitled_1;
+            this.pictureBox1.Image = global::ProjectsManager.Properties.Resources.background_img;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(713, 80);
@@ -1245,7 +1245,7 @@
             // 
             this.NewButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.NewButton.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewButton.Image = global::ProjectsManager.Properties.Resources.add_1;
+            this.NewButton.Image = global::ProjectsManager.Properties.Resources.add_img;
             this.NewButton.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.NewButton.Name = "NewButton";
             this.NewButton.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -1267,7 +1267,7 @@
             // DeleteButton
             // 
             this.DeleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.DeleteButton.Image = global::ProjectsManager.Properties.Resources.garbage_1;
+            this.DeleteButton.Image = global::ProjectsManager.Properties.Resources.garbage_img;
             this.DeleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -1333,7 +1333,7 @@
             // EnterServiceReportButton
             // 
             this.EnterServiceReportButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.EnterServiceReportButton.Image = global::ProjectsManager.Properties.Resources.notepad_2;
+            this.EnterServiceReportButton.Image = global::ProjectsManager.Properties.Resources.notepad;
             this.EnterServiceReportButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.EnterServiceReportButton.Name = "EnterServiceReportButton";
             this.EnterServiceReportButton.Size = new System.Drawing.Size(36, 36);

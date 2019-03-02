@@ -956,7 +956,7 @@ namespace ProjectsManager
                     SWriter.WriteLine(ActivateProjectsManager.CreateTrialCode());
                     SWriter.Close();
                     TrialTimer.Enabled = true;
-                    Settings1.Default.APPFRUN = false;
+                    Settings1.Default.FirstRun = false;
                     MessageBox.Show("تم تفعيل البرنامج للعمل كنسخة تجريبية لمدة 25 مرة" + "\n ستتم اعادة تشغيل البرنامج", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     ProcessStartInfo Info = new ProcessStartInfo();

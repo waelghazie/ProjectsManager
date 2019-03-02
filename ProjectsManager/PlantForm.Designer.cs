@@ -362,7 +362,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox7.Image = global::ProjectsManager.Properties.Resources.settings_1;
+            this.pictureBox7.Image = global::ProjectsManager.Properties.Resources.settings_img;
             this.pictureBox7.Location = new System.Drawing.Point(775, 36);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(50, 50);
@@ -767,7 +767,7 @@
             // OpenRichEditorButton
             // 
             this.OpenRichEditorButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenRichEditorButton.BackgroundImage = global::ProjectsManager.Properties.Resources.more_2;
+            this.OpenRichEditorButton.BackgroundImage = global::ProjectsManager.Properties.Resources.more_img;
             this.OpenRichEditorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.OpenRichEditorButton.FlatAppearance.BorderSize = 0;
             this.OpenRichEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -781,7 +781,7 @@
             // OpenRichEditorButton2
             // 
             this.OpenRichEditorButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OpenRichEditorButton2.BackgroundImage = global::ProjectsManager.Properties.Resources.more_2;
+            this.OpenRichEditorButton2.BackgroundImage = global::ProjectsManager.Properties.Resources.more_img;
             this.OpenRichEditorButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.OpenRichEditorButton2.FlatAppearance.BorderSize = 0;
             this.OpenRichEditorButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -822,7 +822,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::ProjectsManager.Properties.Resources.notepad_2;
+            this.pictureBox8.Image = global::ProjectsManager.Properties.Resources.notepad;
             this.pictureBox8.Location = new System.Drawing.Point(6, 10);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(50, 50);
@@ -1062,7 +1062,7 @@
             // 
             this.NewVisitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.NewVisitButton.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewVisitButton.Image = global::ProjectsManager.Properties.Resources.add_1;
+            this.NewVisitButton.Image = global::ProjectsManager.Properties.Resources.add_img;
             this.NewVisitButton.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.NewVisitButton.Name = "NewVisitButton";
             this.NewVisitButton.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -1257,7 +1257,7 @@
             // 
             this.NewCallLogButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.NewCallLogButton.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewCallLogButton.Image = global::ProjectsManager.Properties.Resources.add_1;
+            this.NewCallLogButton.Image = global::ProjectsManager.Properties.Resources.add_img;
             this.NewCallLogButton.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.NewCallLogButton.Name = "NewCallLogButton";
             this.NewCallLogButton.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -1338,7 +1338,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::ProjectsManager.Properties.Resources.photo_camera;
+            this.pictureBox6.Image = global::ProjectsManager.Properties.Resources.camera_img;
             this.pictureBox6.Location = new System.Drawing.Point(5, 9);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(50, 50);
@@ -1593,7 +1593,7 @@
             // DeleteButton
             // 
             this.DeleteButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.DeleteButton.Image = global::ProjectsManager.Properties.Resources.garbage_1;
+            this.DeleteButton.Image = global::ProjectsManager.Properties.Resources.garbage_img;
             this.DeleteButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);
@@ -1615,7 +1615,7 @@
             // ExitButton
             // 
             this.ExitButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ExitButton.Image = global::ProjectsManager.Properties.Resources.exit_1;
+            this.ExitButton.Image = global::ProjectsManager.Properties.Resources.exit_img;
             this.ExitButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Padding = new System.Windows.Forms.Padding(0, 0, 25, 0);

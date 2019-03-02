@@ -365,7 +365,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::ProjectsManager.Properties.Resources.customers_icon_53440;
+            this.pictureBox1.Image = global::ProjectsManager.Properties.Resources.customers_img;
             this.pictureBox1.Location = new System.Drawing.Point(22, 256);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 50);

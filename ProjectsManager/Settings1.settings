@@ -53,7 +53,7 @@
     <Setting Name="PlantColumnFilter" Type="System.String" Scope="User">
       <Value Profile="(Default)">,[plant] as [اسم الوحدة]</Value>
     </Setting>
-    <Setting Name="APPFRUN" Type="System.Boolean" Scope="User">
+    <Setting Name="FirstRun" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ApplicationManufacturer" Type="System.String" Scope="User">

@@ -24,7 +24,7 @@ namespace ProjectsManager
             {
                 case NotifyMessageIcon.Saved: pictureBox1.Image = Properties.Resources.success; break;
                 case NotifyMessageIcon.Deleted: pictureBox1.Image = Properties.Resources.trash; break;
-                case NotifyMessageIcon.Recycle: pictureBox1.Image = Properties.Resources.garbage_2; break;
+                case NotifyMessageIcon.Recycle: pictureBox1.Image = Properties.Resources.garbage_2_img; break;
                 case NotifyMessageIcon.Restored: pictureBox1.Image = Properties.Resources.broken_link; break;
                 case NotifyMessageIcon.Info: pictureBox1.Image = Properties.Resources.idea; break;
                 case NotifyMessageIcon.Error: pictureBox1.Image = Properties.Resources.error; break;

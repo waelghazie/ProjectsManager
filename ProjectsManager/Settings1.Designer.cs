@@ -230,12 +230,12 @@ namespace ProjectsManager {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool APPFRUN {
+        public bool FirstRun {
             get {
-                return ((bool)(this["APPFRUN"]));
+                return ((bool)(this["FirstRun"]));
             }
             set {
-                this["APPFRUN"] = value;
+                this["FirstRun"] = value;
             }
         }
         
