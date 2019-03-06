@@ -1,4 +1,4 @@
-# ProjectsManager
+# Projects Manager
 
 Projects Manager is simple CRM (Customer Relationship Management) Application. It’s designed for small-business company to meet simple requirements of the user. It helps businesses build strong relationships with their customers and boost activity based on data from customers, staff, and phone calls channel. 
 
