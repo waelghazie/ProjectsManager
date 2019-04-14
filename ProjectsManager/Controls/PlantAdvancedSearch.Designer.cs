@@ -1,6 +1,6 @@
 ﻿namespace ProjectsManager
 {
-    partial class PlantAdvancedSearch
+    partial class PlantSearchPanel
     {
         /// <summary>
         /// Required designer variable.

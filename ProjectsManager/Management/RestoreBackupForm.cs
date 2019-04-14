@@ -1,31 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.Sql;
 using System.Data.SqlClient;
 using System.IO;
 using System.Diagnostics;
 
 namespace ProjectsManager
 {
-    public partial class RestoreDBBackupForm : Form
+    public partial class RestoreBackupForm : Form
     {
-        public RestoreDBBackupForm()
+        public RestoreBackupForm()
         {
             InitializeComponent();
         }
 
-        bool flag = false;
+        bool ConfirmCheck = false;
         bool SuccessRestore = false;
         bool SuccessFileListing = false;
         DataTable DT;
 
-        private void RestoreDBBackupForm_Load(object sender, EventArgs e)
+        private void RestoreBackupForm_Load(object sender, EventArgs e)
         {
             progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.MarqueeAnimationSpeed = 30;
@@ -42,32 +37,32 @@ namespace ProjectsManager
             GetFileBGW.RunWorkerAsync();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void StartButton_Click(object sender, EventArgs e)
         {
             DialogResult DR = MessageBox.Show("هل أنت متأكد من استرجاع نسخة احتياطية بواسطة الملف \n" + FileNameTextBox.Text, "تحذير", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (DR == DialogResult.Yes && flag == false)
+            if (DR == DialogResult.Yes && ConfirmCheck == false)
             {
                 MessageBox.Show("يرجى التأكيد على العملية بكتابة النص في المربع");
                 label5.Visible = true;
                 ConfirmTextBox.Visible = true;
-                flag = true;
+                ConfirmCheck = true;
                 ConfirmTextBox.Focus();
             }
-            if (DR == DialogResult.Yes && flag == true && ConfirmTextBox.Text == label5.Text)
+            if (DR == DialogResult.Yes && ConfirmCheck == true && ConfirmTextBox.Text == label5.Text)
             {
                 progressBar1.Visible = true;
                 RestoreBGW.RunWorkerAsync();
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        private void FilesGrid_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView1.DataSource != null && dataGridView1.SelectedCells.Count > 0)
-                FileNameTextBox.Text = Convert.ToString(dataGridView1.SelectedCells[0].Value);
+            if (FilesGrid.DataSource != null && FilesGrid.SelectedCells.Count > 0)
+                FileNameTextBox.Text = Convert.ToString(FilesGrid.SelectedCells[0].Value);
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
         }
@@ -210,9 +205,9 @@ namespace ProjectsManager
         {
             if (SuccessFileListing)
             {
-                dataGridView1.DataSource = DT;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                dataGridView1.Sort(dataGridView1.Columns[1], ListSortDirection.Ascending);
+                FilesGrid.DataSource = DT;
+                FilesGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                FilesGrid.Sort(FilesGrid.Columns[1], ListSortDirection.Ascending);
                 StartButton.Enabled = true;
             }
             else
@@ -221,8 +216,5 @@ namespace ProjectsManager
             }
             progressBar1.Visible = false;
         }
-
-
-
     }
 }

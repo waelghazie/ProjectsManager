@@ -46,7 +46,7 @@
             this.PlantName = new System.Windows.Forms.CheckBox();
             this.PlantCustomerName = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Button1 = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -257,25 +257,25 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "اختيار الحقول المراد عرضها:";
             // 
-            // Button1
+            // CloseButton
             // 
-            this.Button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Button1.Location = new System.Drawing.Point(289, 314);
-            this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(75, 23);
-            this.Button1.TabIndex = 4;
-            this.Button1.Text = "اغلاق";
-            this.Button1.UseVisualStyleBackColor = true;
-            this.Button1.Click += new System.EventHandler(this.Button1_Click);
+            this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CloseButton.Location = new System.Drawing.Point(289, 314);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseButton.TabIndex = 4;
+            this.CloseButton.Text = "اغلاق";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // ColumnsSelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.Button1;
+            this.CancelButton = this.CloseButton;
             this.ClientSize = new System.Drawing.Size(376, 349);
             this.ControlBox = false;
-            this.Controls.Add(this.Button1);
+            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -314,7 +314,7 @@
         private System.Windows.Forms.CheckBox PlantTechPerson;
         private System.Windows.Forms.CheckBox PlantCustomerName;
         private System.Windows.Forms.CheckBox PlantName;
-        private System.Windows.Forms.Button Button1;
+        private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.CheckBox PlantLastVisit;
     }
 }

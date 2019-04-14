@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data.Common;
 using System.DirectoryServices.AccountManagement;
 
 namespace ProjectsManager
@@ -24,7 +20,7 @@ namespace ProjectsManager
         bool NewDomainUser = false;
         bool NewUser = false;
 
-        private void UsersManagement_Load(object sender, EventArgs e)
+        private void UsersManagementForm_Load(object sender, EventArgs e)
         {
             progressBar1.Visible = false;
             progressBar1.Style = ProgressBarStyle.Marquee;
@@ -58,7 +54,7 @@ namespace ProjectsManager
                     }
             }
 
-            RefreshDGV();
+            RefreshGrid();
         }
 
         private void LoadDataForSelectedUser()
@@ -88,29 +84,29 @@ namespace ProjectsManager
                             }
                             if (!Reader.IsDBNull(4))
                                 if (Reader.GetBoolean(4))
-                                    ReadCheckBox.Checked = true;
+                                    PermissionReadCheckBox.Checked = true;
                                 else
-                                    ReadCheckBox.Checked = false;
+                                    PermissionReadCheckBox.Checked = false;
                             if (!Reader.IsDBNull(5))
                                 if (Reader.GetBoolean(5))
-                                    ModifyCheckBox.Checked = true;
+                                    PermissionModifyCheckBox.Checked = true;
                                 else
-                                    ModifyCheckBox.Checked = false;
+                                    PermissionModifyCheckBox.Checked = false;
                             if (!Reader.IsDBNull(6))
                                 if (Reader.GetBoolean(6))
-                                    CreateCheckBox.Checked = true;
+                                    PermissionCreateCheckBox.Checked = true;
                                 else
-                                    CreateCheckBox.Checked = false;
+                                    PermissionCreateCheckBox.Checked = false;
                             if (!Reader.IsDBNull(7))
                                 if (Reader.GetBoolean(7))
-                                    DeleteCheckBox.Checked = true;
+                                    PermissionDeleteCheckBox.Checked = true;
                                 else
-                                    DeleteCheckBox.Checked = false;
+                                    PermissionDeleteCheckBox.Checked = false;
                             if (!Reader.IsDBNull(8))
                                 if (Reader.GetBoolean(8))
-                                    ManageCheckBox.Checked = true;
+                                    PermissionManageCheckBox.Checked = true;
                                 else
-                                    ManageCheckBox.Checked = false;
+                                    PermissionManageCheckBox.Checked = false;
                             if (!Reader.IsDBNull(9))
                                 SelectedUser.IsDomainUser = Reader.GetBoolean(9);
                         }
@@ -121,78 +117,55 @@ namespace ProjectsManager
             }
         }
 
-        private void EnableEditing()
+        private void SetControlState(Boolean State)
         {
-            ReadCheckBox.Enabled = true;
-            ModifyCheckBox.Enabled = true;
-            CreateCheckBox.Enabled = true;
-            DeleteCheckBox.Enabled = true;
-            ManageCheckBox.Enabled = true;
+            PermissionReadCheckBox.Enabled = State;
+            PermissionModifyCheckBox.Enabled = State;
+            PermissionCreateCheckBox.Enabled = State;
+            PermissionDeleteCheckBox.Enabled = State;
+            PermissionManageCheckBox.Enabled = State;
 
-            SaveChangesButton.Visible = true;
-            CancelChangesButton.Visible = true;
-            ModifyLinkLabel.Enabled = false;
-            NewUserButton.Enabled = false;
-            DeleteUserButton.Enabled = false;
+            SaveChangesButton.Visible = State;
+            CancelChangesButton.Visible = State;
+            ModifyLinkLabel.Enabled = !State;
+            NewUserButton.Enabled = !State;
+            DeleteUserButton.Enabled = !State;
 
             if (SelectedUser.IsDomainUser)
             {
-                DispalyNameTextBox.Visible = false; UserNameTextBox.Visible = false; PasswordTextBox.Visible = false; ConfirmPasswordTextBox.Visible = false;
-                label2.Visible = false; label3.Visible = false; label4.Visible = false; label5.Visible = false;
+                DispalyNameTextBox.Visible = !State; UserNameTextBox.Visible = !State;
+                PasswordTextBox.Visible = !State; ConfirmPasswordTextBox.Visible = !State;
+                UserNameLabel.Visible = !State; UserDisplayNameLabel.Visible = !State;
+                UserPasswordLabel.Visible = !State; PasswrodConfirmLabel.Visible = !State;
                 
             }
             else if (!SelectedUser.IsDomainUser)
             {
-                DispalyNameTextBox.Visible = true; UserNameTextBox.Visible = true; PasswordTextBox.Visible = true; ConfirmPasswordTextBox.Visible = true;
-                label2.Visible = true; label3.Visible = true; label4.Visible = true; label5.Visible = true;
+                DispalyNameTextBox.Visible = State; UserNameTextBox.Visible = State;
+                PasswordTextBox.Visible = State; ConfirmPasswordTextBox.Visible = State;
+                UserNameLabel.Visible = State; UserDisplayNameLabel.Visible = State;
+                UserPasswordLabel.Visible = State; PasswrodConfirmLabel.Visible = State;
             }
-            dataGridView1.Enabled = false;
-        }
-
-        private void DisableEditing()
-        {
-            ReadCheckBox.Enabled = false;
-            ModifyCheckBox.Enabled = false;
-            CreateCheckBox.Enabled = false;
-            DeleteCheckBox.Enabled = false;
-            ManageCheckBox.Enabled = false;
-
-            SaveChangesButton.Visible = false;
-            CancelChangesButton.Visible = false;
-            ModifyLinkLabel.Enabled = true;
-            NewUserButton.Enabled = true;
-            DeleteUserButton.Enabled = true;
-            
-            DispalyNameTextBox.Visible = false; UserNameTextBox.Visible = false; PasswordTextBox.Visible = false; ConfirmPasswordTextBox.Visible = false;
-
-            label2.Visible = false;
-            label3.Visible = false;
-            label4.Visible = false;
-            label5.Visible = false;
-
-            dataGridView1.Enabled = true;
+            dataGridView1.Enabled = !State;
         }
         
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void ModifyUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //تعديل
             if (SelectedUser.UserName != "admin")
             {
-                EnableEditing();
+                SetControlState(true);
             }
             else
                 MessageBox.Show("لا يمكن تعديل المستخدم : admin", "تحذير", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
-            //حفظ
-
             if (SelectedUser.IsDomainUser)
             {
                 SaveUserData();
-                DisableEditing();
-                RefreshDGV();
+                SetControlState(false);
+                RefreshGrid();
             }
             else if (!SelectedUser.IsDomainUser)
             {
@@ -205,9 +178,9 @@ namespace ProjectsManager
                     else
                     {
                         SaveUserData();
-                        DisableEditing();
+                        SetControlState(false);
                     }
-                    RefreshDGV();
+                    RefreshGrid();
                 }
             }
         }
@@ -220,7 +193,7 @@ namespace ProjectsManager
                 SqlCommand Command = new SqlCommand();
                 Command.Connection = Connection;
 
-                if (NewUser) //يوزر جديد
+                if (NewUser)
                 {
                     Command.CommandText = @"insert into [" + Settings1.Default.DatabaseName + @"].[dbo].[users] 
                     ([displayname],[username],[password],[read],[modify],[create],[delete],[ManageUsers],[isdomainuser])  values 
@@ -229,16 +202,16 @@ namespace ProjectsManager
                     Command.Parameters.Add("@displayname", SqlDbType.NVarChar).Value = DispalyNameTextBox.Text;
                     Command.Parameters.Add("@username", SqlDbType.NVarChar).Value = UserNameTextBox.Text;
                     Command.Parameters.Add("@password", SqlDbType.NVarChar).Value = Encryption.Encrypt(PasswordTextBox.Text);
-                    Command.Parameters.Add("@read", SqlDbType.Bit).Value = ReadCheckBox.Checked;
-                    Command.Parameters.Add("@modify", SqlDbType.Bit).Value = ModifyCheckBox.Checked;
-                    Command.Parameters.Add("@create", SqlDbType.Bit).Value = CreateCheckBox.Checked;
-                    Command.Parameters.Add("@delete", SqlDbType.Bit).Value = DeleteCheckBox.Checked;
-                    Command.Parameters.Add("@ManageUsers", SqlDbType.Bit).Value = ManageCheckBox.Checked;
+                    Command.Parameters.Add("@read", SqlDbType.Bit).Value = PermissionReadCheckBox.Checked;
+                    Command.Parameters.Add("@modify", SqlDbType.Bit).Value = PermissionModifyCheckBox.Checked;
+                    Command.Parameters.Add("@create", SqlDbType.Bit).Value = PermissionCreateCheckBox.Checked;
+                    Command.Parameters.Add("@delete", SqlDbType.Bit).Value = PermissionDeleteCheckBox.Checked;
+                    Command.Parameters.Add("@ManageUsers", SqlDbType.Bit).Value = PermissionManageCheckBox.Checked;
                     Command.Parameters.Add("@id", SqlDbType.Int).Value = SelectedUser.UserID;
 
                     NewUser = false;
                 }
-                else     //يوزر قديم 
+                else 
                 {
                     Command.CommandText = @"UPDATE [" + Settings1.Default.DatabaseName + @"].[dbo].[users] SET 
                     [displayname]=@displayname, [username]=@username, [password]=@password, 
@@ -248,11 +221,11 @@ namespace ProjectsManager
                     Command.Parameters.Add("@displayname",SqlDbType.NVarChar).Value = DispalyNameTextBox.Text;
                     Command.Parameters.Add("@username",SqlDbType.NVarChar).Value = UserNameTextBox.Text;
                     Command.Parameters.Add("@password",SqlDbType.NVarChar).Value = Encryption.Encrypt(PasswordTextBox.Text);
-                    Command.Parameters.Add("@read",SqlDbType.Bit).Value = ReadCheckBox.Checked;
-                    Command.Parameters.Add("@modify",SqlDbType.Bit).Value = ModifyCheckBox.Checked;
-                    Command.Parameters.Add("@create",SqlDbType.Bit).Value = CreateCheckBox.Checked;
-                    Command.Parameters.Add("@delete",SqlDbType.Bit).Value = DeleteCheckBox.Checked;
-                    Command.Parameters.Add("@ManageUsers",SqlDbType.Bit).Value = ManageCheckBox.Checked;
+                    Command.Parameters.Add("@read",SqlDbType.Bit).Value = PermissionReadCheckBox.Checked;
+                    Command.Parameters.Add("@modify",SqlDbType.Bit).Value = PermissionModifyCheckBox.Checked;
+                    Command.Parameters.Add("@create",SqlDbType.Bit).Value = PermissionCreateCheckBox.Checked;
+                    Command.Parameters.Add("@delete",SqlDbType.Bit).Value = PermissionDeleteCheckBox.Checked;
+                    Command.Parameters.Add("@ManageUsers",SqlDbType.Bit).Value = PermissionManageCheckBox.Checked;
                     Command.Parameters.Add("@id",SqlDbType.Int).Value = SelectedUser.UserID;
                 }
 
@@ -263,35 +236,33 @@ namespace ProjectsManager
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
-            //الغاء
             NewUser = false;
 
-            DisableEditing();            
+            SetControlState(false);            
             LoadDataForSelectedUser();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void NewUserButton_Click(object sender, EventArgs e)
         {
-            //جديد
             NewUser = true;
 
-            EnableEditing();
+            SetControlState(true);
 
-            ReadCheckBox.Checked = false;
-            ModifyCheckBox.Checked = false; 
-            CreateCheckBox.Checked = false;
-            CreateCheckBox.Checked = false;
-            DeleteCheckBox.Checked = false;
-            ManageCheckBox.Checked = false;
+            PermissionReadCheckBox.Checked = false;
+            PermissionModifyCheckBox.Checked = false; 
+            PermissionCreateCheckBox.Checked = false;
+            PermissionCreateCheckBox.Checked = false;
+            PermissionDeleteCheckBox.Checked = false;
+            PermissionManageCheckBox.Checked = false;
             DispalyNameTextBox.Text = "";
             UserNameTextBox.Text = "";
             PasswordTextBox.Text = "";
             ConfirmPasswordTextBox.Text = "";
         }
 
-        private void RefreshDGV()
+        private void RefreshGrid()
         {
             using (SqlConnection Connection = AppConnection.GetConnection())
             {
@@ -308,15 +279,13 @@ namespace ProjectsManager
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void DeleteUserButton_Click(object sender, EventArgs e)
         {
-            //حذف
-
             if (Convert.ToString(dataGridView1.SelectedCells[2].Value) != "admin")
             {
                 if (dataGridView1.SelectedCells.Count > 0)
@@ -337,7 +306,7 @@ namespace ProjectsManager
             else
             { MessageBox.Show("لا يمكن حذف المستخدم : admin", "", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
             
-            RefreshDGV();
+            RefreshGrid();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -352,13 +321,13 @@ namespace ProjectsManager
                 ConfirmPasswordTextBox.Text = "";
         }
 
-        private void ConnectToADbutton_Click(object sender, EventArgs e)
+        private void ConnectToADButton_Click(object sender, EventArgs e)
         {
             if (DomainControllerTextBox.Text != "" && OUTextBox.Text != "" && DomainTextBox.Text != "" && DomainSuffixTextBox.Text != "" && DomainUsernameTextBox.Text != "" && DomainPasswordTextBox.Text != "")
             {
                 progressBar1.Visible = true;
                 ConnectToADbutton.Enabled = false;
-                backgroundWorker1.RunWorkerAsync();
+                ActiveDirectoryConnectBGW.RunWorkerAsync();
             }
             else
             { MessageBox.Show("يرجى ادخال كافة البيانات"); }
@@ -369,7 +338,7 @@ namespace ProjectsManager
             //Reader.Close();
             ConnectToADbutton.Enabled = false;
             SaveDomainInfoButton.Enabled = false;
-            backgroundWorker1.RunWorkerAsync();
+            ActiveDirectoryConnectBGW.RunWorkerAsync();
         }
 
         private void SaveADSettings()
@@ -395,7 +364,7 @@ namespace ProjectsManager
             }
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void ActiveDirectoryConnect_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
@@ -407,7 +376,6 @@ namespace ProjectsManager
 
                 // create your principal searcher passing in the QBE principal    
                 PrincipalSearcher srch = new PrincipalSearcher(qbeUser);
-
                 
                 using (SqlConnection Connection = AppConnection.GetConnection())
                 {
@@ -454,14 +422,14 @@ namespace ProjectsManager
             
         }
 
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void ActiveDirectoryConnect_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             progressBar1.Visible = false;
             ConnectToADbutton.Enabled = true;
-            RefreshDGV();
+            RefreshGrid();
         }
 
-        private void SaveADinfo_Click(object sender, EventArgs e)
+        private void SaveDomainInfo_Click(object sender, EventArgs e)
         {
             SaveADSettings();
         }

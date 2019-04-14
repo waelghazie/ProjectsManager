@@ -31,18 +31,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.PasswordTextBox = new ProjectsManager.ProtectedTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DatabaseLabel = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.QuickLoginLabel = new System.Windows.Forms.Label();
             this.ExitAppButton = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.LanguageLabel = new System.Windows.Forms.Label();
+            this.PasswordStatusLabel = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.PasswordTextBox = new ProjectsManager.ProtectedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,10 +55,10 @@
             this.panel1.Controls.Add(this.PasswordTextBox);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.DatabaseLabel);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.QuickLoginLabel);
             this.panel1.Controls.Add(this.ExitAppButton);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.LanguageLabel);
+            this.panel1.Controls.Add(this.PasswordStatusLabel);
             this.panel1.Controls.Add(this.LoginButton);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
@@ -80,7 +80,18 @@
             this.CloseButton.TabIndex = 24;
             this.CloseButton.Text = "اغلاق";
             this.CloseButton.UseVisualStyleBackColor = true;
-            this.CloseButton.Click += new System.EventHandler(this.button3_Click);
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // PasswordTextBox
+            // 
+            this.PasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordTextBox.Location = new System.Drawing.Point(177, 148);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PasswordTextBox.Size = new System.Drawing.Size(166, 20);
+            this.PasswordTextBox.TabIndex = 14;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
+            this.PasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PasswordTextBox_KeyUp);
             // 
             // pictureBox1
             // 
@@ -104,17 +115,17 @@
             this.DatabaseLabel.Text = "DatabaseLabel";
             this.DatabaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label6
+            // QuickLoginLabel
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(-1, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "label6";
-            this.label6.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label6_MouseDoubleClick);
+            this.QuickLoginLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.QuickLoginLabel.AutoSize = true;
+            this.QuickLoginLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.QuickLoginLabel.Location = new System.Drawing.Point(-1, 0);
+            this.QuickLoginLabel.Name = "QuickLoginLabel";
+            this.QuickLoginLabel.Size = new System.Drawing.Size(83, 13);
+            this.QuickLoginLabel.TabIndex = 21;
+            this.QuickLoginLabel.Text = "QuickLoginLabel";
+            this.QuickLoginLabel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.QuickLogingLabel_MouseDoubleClick);
             // 
             // ExitAppButton
             // 
@@ -125,30 +136,30 @@
             this.ExitAppButton.TabIndex = 17;
             this.ExitAppButton.Text = "خروج";
             this.ExitAppButton.UseVisualStyleBackColor = true;
-            this.ExitAppButton.Click += new System.EventHandler(this.button2_Click);
+            this.ExitAppButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
-            // label5
+            // LanguageLabel
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Location = new System.Drawing.Point(134, 151);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(37, 15);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "label5";
+            this.LanguageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LanguageLabel.AutoSize = true;
+            this.LanguageLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.LanguageLabel.Location = new System.Drawing.Point(92, 151);
+            this.LanguageLabel.Name = "LanguageLabel";
+            this.LanguageLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LanguageLabel.Size = new System.Drawing.Size(81, 15);
+            this.LanguageLabel.TabIndex = 20;
+            this.LanguageLabel.Text = "LanguageLabel";
             // 
-            // label4
+            // PasswordStatusLabel
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(174, 171);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "label4";
+            this.PasswordStatusLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordStatusLabel.AutoSize = true;
+            this.PasswordStatusLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PasswordStatusLabel.Location = new System.Drawing.Point(237, 174);
+            this.PasswordStatusLabel.Name = "PasswordStatusLabel";
+            this.PasswordStatusLabel.Size = new System.Drawing.Size(109, 13);
+            this.PasswordStatusLabel.TabIndex = 19;
+            this.PasswordStatusLabel.Text = "PasswordStatusLabel";
             // 
             // LoginButton
             // 
@@ -159,7 +170,7 @@
             this.LoginButton.TabIndex = 15;
             this.LoginButton.Text = "دخول";
             this.LoginButton.UseVisualStyleBackColor = true;
-            this.LoginButton.Click += new System.EventHandler(this.button1_Click);
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // label3
             // 
@@ -189,7 +200,7 @@
             this.UserNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.UserNameTextBox.Size = new System.Drawing.Size(166, 20);
             this.UserNameTextBox.TabIndex = 13;
-            this.UserNameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
+            this.UserNameTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.UserNameTextBox_KeyUp);
             // 
             // label1
             // 
@@ -200,17 +211,6 @@
             this.label1.Size = new System.Drawing.Size(238, 13);
             this.label1.TabIndex = 12;
             this.label1.Text = "أهلاً بك ، يرجى ادخال اسم المستخدم وكلمة السر";
-            // 
-            // PasswordTextBox
-            // 
-            this.PasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PasswordTextBox.Location = new System.Drawing.Point(177, 148);
-            this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.PasswordTextBox.Size = new System.Drawing.Size(166, 20);
-            this.PasswordTextBox.TabIndex = 14;
-            this.PasswordTextBox.UseSystemPasswordChar = true;
-            this.PasswordTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyUp);
             // 
             // LoginForm
             // 
@@ -229,7 +229,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "برنامج ادارة المشاريع";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.LoginWindow_Load);
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.Shown += new System.EventHandler(this.LoginWindow_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -245,10 +245,10 @@
         private ProtectedTextBox PasswordTextBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label DatabaseLabel;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label QuickLoginLabel;
         private System.Windows.Forms.Button ExitAppButton;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LanguageLabel;
+        private System.Windows.Forms.Label PasswordStatusLabel;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

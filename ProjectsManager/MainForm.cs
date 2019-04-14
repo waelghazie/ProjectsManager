@@ -18,8 +18,8 @@ namespace ProjectsManager
             InitializeComponent();
         }
       
-        LoginForm LoginWindow;
-        ApplicationWizardForm WizardForm;
+        LoginForm loginForm;
+        ApplicationWizardForm applicationWizardForm;
         
         string BackupStatus;
 
@@ -28,6 +28,7 @@ namespace ProjectsManager
 
         public enum CurrentOpenSection {Home, Institutes, Plants, PhoneCallsLog, Programs, DeletedInstitutes, DeletedPlants ,DeletedCustomers}
         CurrentOpenSection CurrentSection;
+
         DataTable PlantsData, InstitutesData, TodaysAppointments, DeletedInstitutesData, DeletedPlantsData, DeletedCustomersData;
         DataTable PhoneCallsLogData, MyRemindersData, TodayCallsData, ProgramsData;
 
@@ -40,25 +41,22 @@ namespace ProjectsManager
 
         List<int> OpenRemindersList = new List<int>();
 
-        InstituteAdvancedSearch InstituteSearchPanel;
-        PlantAdvancedSearch PlantSearchPanel;
-        CallsAdvancedSearch CallSearchPanel;
+        InstituteSearchPanel instituteSearchPanel;
+        PlantSearchPanel plantSearchPanel;
+        CallsSearchPanel callsSearchPanel;
         ChoosePlantSelectedTab PlantToolTip;
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            InstituteSearchPanel = new InstituteAdvancedSearch();
-            InstituteSearchPanel.PropertyChanged += new PropertyChangedEventHandler(InstituteSearchPanel_PropertyChanged);
-            PlantSearchPanel = new PlantAdvancedSearch();
-            PlantSearchPanel.PropertyChanged += new PropertyChangedEventHandler(PlantSearchPanel_PropertyChanged);
-            CallSearchPanel = new CallsAdvancedSearch();
-            CallSearchPanel.PropertyChanged += new PropertyChangedEventHandler(CallSearch_PropertyChanged);
+            instituteSearchPanel = new InstituteSearchPanel();
+            instituteSearchPanel.PropertyChanged += new PropertyChangedEventHandler(InstituteSearchPanel_PropertyChanged);
+            plantSearchPanel = new PlantSearchPanel();
+            plantSearchPanel.PropertyChanged += new PropertyChangedEventHandler(PlantSearchPanel_PropertyChanged);
+            callsSearchPanel = new CallsSearchPanel();
+            callsSearchPanel.PropertyChanged += new PropertyChangedEventHandler(CallSearch_PropertyChanged);
 
             PlantToolTip = new ChoosePlantSelectedTab();
             PlantToolTip.PropertyChanged += new PropertyChangedEventHandler(PlantTabChoosen);
-
-            //DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
-            //ItemsDGV.Columns.Add(chk); { chk.HeaderText = " "; }
 
             clock1.UtcOffset = TimeZone.CurrentTimeZone.GetUtcOffset(DateTime.Now);
             StatusLabel4.Visible = false;
@@ -87,31 +85,34 @@ namespace ProjectsManager
             DeletedCustomersData = new DataTable();
             DeletedInstitutesData = new DataTable();
             DeletedPlantsData = new DataTable();
-            
             MyRemindersData = new DataTable();
             PhoneCallsLogData = new DataTable();
             TodayCallsData = new DataTable();
             ProgramsData = new DataTable();
 
-            DisableApplicationControls();
+            ChangeControlsState(false);
 
-            LoginWindow = new LoginForm();
+            loginForm = new LoginForm();
         }
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
             CheckActivationStatus();
+            checkIfFirstRunOfApplication();
+        }
 
+        private void checkIfFirstRunOfApplication()
+        {
             if (CheckOS32or64.IsOS64Bit())
             {
-                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Wow6432Node\\" +  Settings1.Default.ApplicationManufacturer + "\\Settings", true))
+                using (RegistryKey myKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\\Wow6432Node\\" + Settings1.Default.ApplicationManufacturer + "\\Settings", true))
                     if (myKey != null)
                         if (myKey.GetValue("FirstRun", 0, RegistryValueOptions.None).ToString() == "1")
                         {
-                            WizardForm = new ApplicationWizardForm();
-                            WizardForm.ShowDialog();
+                            applicationWizardForm = new ApplicationWizardForm();
+                            applicationWizardForm.ShowDialog();
 
-                            if (WizardForm.SuccessDBConnect || WizardForm.SuccessDBCreation)
+                            if (applicationWizardForm.IsDatabaseConnected || applicationWizardForm.IsDatabasCreated)
                                 if (ConnectToDatabase())
                                     LoginToAppliacation();
                         }
@@ -124,10 +125,10 @@ namespace ProjectsManager
                     if (myKey != null)
                         if (myKey.GetValue("FirstRun", 0, RegistryValueOptions.None).ToString() == "1")
                         {
-                            WizardForm = new ApplicationWizardForm();
-                            WizardForm.ShowDialog();
+                            applicationWizardForm = new ApplicationWizardForm();
+                            applicationWizardForm.ShowDialog();
 
-                            if (WizardForm.SuccessDBConnect || WizardForm.SuccessDBCreation)
+                            if (applicationWizardForm.IsDatabaseConnected || applicationWizardForm.IsDatabasCreated)
                                 if (ConnectToDatabase())
                                     LoginToAppliacation();
                         }
@@ -179,7 +180,7 @@ namespace ProjectsManager
                     else
                         LoginMenuItem.Visible = true;
 
-                    DisableApplicationControls();
+                    ChangeControlsState(false);
                     break;
                 default:
                     ConnectionStatusLabel.Text = "جاري الاتصال";
@@ -191,24 +192,24 @@ namespace ProjectsManager
         {
             if (Connection.State == ConnectionState.Open)
             {
-                LoginWindow.ShowDialog();
-                if (LoginWindow.CloseApplication == true)
+                loginForm.ShowDialog();
+                if (loginForm.CloseApplication == true)
                     Close();
 
-                if (LoginWindow.Authorized)         //مسموح الدخول للمستخدم
+                if (loginForm.Authorized)         //مسموح الدخول للمستخدم
                 {
-                    this.user = LoginWindow.user;
+                    this.user = loginForm.user;
                     LoggedUserLabel.Text = user.DisplayName;
                     LoggedIN = true;
 
                     LoadDBSettings();
 
-                    EnableAppplicationControls();
+                    ChangeControlsState(true);
                     VerifyUserPermissions(CurrentOpenSection.Home);
                 }
                 else                     //غير مسموح للمستخدم بالدخول  
                 {
-                    DisableApplicationControls();
+                    ChangeControlsState(false);
                 }
             }
         }
@@ -241,47 +242,31 @@ namespace ProjectsManager
             }
         }
 
-        void DisableApplicationControls()
+        void ChangeControlsState(bool state)
         {
-            //ايقاف ازرار و وظائف البرنامج
+            //false: disable controls, true: Enable controls
             
-            بطاقاتToolStripMenuItem.Enabled = false;
-            التذكيراتToolStripMenuItem.Enabled = false;
-            ViewMenuItem.Enabled = false;
-            AppSettingsMenuItem.Visible = false;
-            ManageUsersMenuItem.Visible = false;
-            BackupMenuMenuItem.Visible = false;
-            ViewMenuItem.Visible = false;
+            بطاقاتToolStripMenuItem.Enabled = state;
+            التذكيراتToolStripMenuItem.Enabled = state;
+            ViewMenuItem.Enabled = state;
+            AppSettingsMenuItem.Visible = state;
+            ManageUsersMenuItem.Visible = state;
+            BackupMenuMenuItem.Visible = state;
+            ViewMenuItem.Visible = state;
 
-            tableLayoutPanel1.Visible = false;
+            tableLayoutPanel1.Visible = state;
 
-            ReminderTimer.Enabled = false;
-            BackupTimer.Enabled = false;
+            ReminderTimer.Enabled = state;
+            BackupTimer.Enabled = state;
 
-        }
-
-        void EnableAppplicationControls()
-        {
-            //تفعيل ازرار البرنامج و وظائفه
-            if (!TrialPeriodEnd)
+            // &&  !TrialPeriodEnd
+            if (state == true)
             {
-                التذكيراتToolStripMenuItem.Enabled = true;
-                بطاقاتToolStripMenuItem.Enabled = true;
-                ViewMenuItem.Enabled = true;
-                AppSettingsMenuItem.Visible = true;
-                ManageUsersMenuItem.Visible = true;
-                BackupMenuMenuItem.Visible = true;
-                ViewMenuItem.Visible = true;
-
-                tableLayoutPanel1.Visible = true;
-
-                ReminderTimer.Enabled = true;
-                BackupTimer.Enabled = true;
-
                 RefreshMyRemindersDGV();
                 RefreshTodayCallsDGV();
                 RefreshActiveAppointmentsDGV();
             }
+
         }
 
         private void VerifyUserPermissions(CurrentOpenSection CD)
@@ -432,7 +417,7 @@ namespace ProjectsManager
         private void SettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Connection.Close();
-            AppSettingsForm SettingForm = new AppSettingsForm();
+            ApplicationSettingsForm SettingForm = new ApplicationSettingsForm();
             SettingForm.ShowDialog();
 
             if (SettingForm.SuccessConnect)
@@ -444,11 +429,11 @@ namespace ProjectsManager
         {
             if (LoggedIN)
             {
-                DisableApplicationControls();
+                ChangeControlsState(false);
                 LoginToAppliacation();
             }
             if (!LoggedIN)
-                DisableApplicationControls(); 
+                ChangeControlsState(false); 
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -822,7 +807,7 @@ namespace ProjectsManager
 
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
-            BackupDBForm backup = new BackupDBForm();
+            BackupDatabaseForm backup = new BackupDatabaseForm();
             backup.ShowDialog();
         }
 
@@ -941,7 +926,7 @@ namespace ProjectsManager
 
         private void تفعيلالنسخةToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LicensingApplicationForm LicenseWindow = new LicensingApplicationForm();
+            LicenseForm LicenseWindow = new LicenseForm();
             LicenseWindow.ShowDialog();
         }
 
@@ -996,7 +981,7 @@ namespace ProjectsManager
                                 {
                                     Text += " - [انتهاء مدة النسخة التجريبية]";
                                     TrialPeriodEnd = true;
-                                    LicensingApplicationForm LicenseWindow = new LicensingApplicationForm();
+                                    LicenseForm LicenseWindow = new LicenseForm();
                                     LicenseWindow.ShowDialog();
                                 }
                             }
@@ -1014,7 +999,7 @@ namespace ProjectsManager
 
         private void ActivationError()
         {
-            DisableApplicationControls();
+            ChangeControlsState(false);
             StatusLabel4.Visible = true;
             StatusLabel4.Text = "مشكلة في تفعيل النسخة";
         }
@@ -1074,19 +1059,19 @@ namespace ProjectsManager
         {
             //Connection.Close();
 
-            RestoreDBBackupForm RestoreDBBackupWindow = new RestoreDBBackupForm();
+            RestoreBackupForm RestoreDBBackupWindow = new RestoreBackupForm();
             RestoreDBBackupWindow.ShowDialog();
         }
 
         private void NewDBMenuMenuItem_Click(object sender, EventArgs e)
         {
-            CreateNewDBform NewDB = new CreateNewDBform();
+            CreateDatabaseForm NewDB = new CreateDatabaseForm();
             NewDB.ShowDialog();
         }
 
         private void AppSettingsMenuItem_Click(object sender, EventArgs e)
         {
-            DBSettingsForm AppSettingsWindow = new DBSettingsForm(user);
+            DataSettingsForm AppSettingsWindow = new DataSettingsForm(user);
             AppSettingsWindow.FormClosed += new FormClosedEventHandler(AppSettingsWindow_FormClosed);
             AppSettingsWindow.ShowDialog();
         }
@@ -1135,8 +1120,8 @@ namespace ProjectsManager
                 case CurrentOpenSection.Institutes:
                     try
                     {
-                        InstituteSearchPanel.SetDesktopLocation(ToolBar.PointToScreen(Point.Empty).X + ToolBar.Width / 3, ToolBar.PointToScreen(Point.Empty).Y + AdvancedSearchButton.Size.Height);
-                        InstituteSearchPanel.ShowForm();
+                        instituteSearchPanel.SetDesktopLocation(ToolBar.PointToScreen(Point.Empty).X + ToolBar.Width / 3, ToolBar.PointToScreen(Point.Empty).Y + AdvancedSearchButton.Size.Height);
+                        instituteSearchPanel.ShowForm();
                     }
                     catch (Exception exp)
                     { }
@@ -1144,8 +1129,8 @@ namespace ProjectsManager
                 case CurrentOpenSection.Plants:
                     try
                     {
-                        PlantSearchPanel.SetDesktopLocation(ToolBar.PointToScreen(Point.Empty).X + ToolBar.Width / 3, ToolBar.PointToScreen(Point.Empty).Y + AdvancedSearchButton.Size.Height);
-                        PlantSearchPanel.ShowForm();
+                        plantSearchPanel.SetDesktopLocation(ToolBar.PointToScreen(Point.Empty).X + ToolBar.Width / 3, ToolBar.PointToScreen(Point.Empty).Y + AdvancedSearchButton.Size.Height);
+                        plantSearchPanel.ShowForm();
                     }
                     catch (Exception exp)
                     { }
@@ -1153,8 +1138,8 @@ namespace ProjectsManager
                 case CurrentOpenSection.PhoneCallsLog:
                     try
                     {
-                        CallSearchPanel.SetDesktopLocation(ToolBar.PointToScreen(Point.Empty).X + ToolBar.Width / 3, ToolBar.PointToScreen(Point.Empty).Y + AdvancedSearchButton.Size.Height);
-                        CallSearchPanel.ShowForm();
+                        callsSearchPanel.SetDesktopLocation(ToolBar.PointToScreen(Point.Empty).X + ToolBar.Width / 3, ToolBar.PointToScreen(Point.Empty).Y + AdvancedSearchButton.Size.Height);
+                        callsSearchPanel.ShowForm();
                     }
                     catch (Exception exp)
                     { }
@@ -1164,17 +1149,17 @@ namespace ProjectsManager
 
         void InstituteSearchPanel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            RefreshDGV(CurrentSection, InstituteSearchPanel.QueryFilter);
+            RefreshDGV(CurrentSection, instituteSearchPanel.QueryFilter);
         }
         
         void PlantSearchPanel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            RefreshDGV(CurrentSection, PlantSearchPanel.QueryFilter);
+            RefreshDGV(CurrentSection, plantSearchPanel.QueryFilter);
         }
         
         void CallSearch_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            RefreshDGV(CurrentSection, CallSearchPanel.QueryFilter);
+            RefreshDGV(CurrentSection, callsSearchPanel.QueryFilter);
         }
 
         private void اختيارالحقولToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1244,11 +1229,11 @@ namespace ProjectsManager
             ApplicationWizardForm WizardForm = new ApplicationWizardForm();
             WizardForm.ShowDialog();
 
-            if (WizardForm.SuccessDBConnect || WizardForm.SuccessDBCreation)
+            if (WizardForm.IsDatabaseConnected || WizardForm.IsDatabasCreated)
                 if (ConnectToDatabase())
                     LoginToAppliacation();
 
-            //if () { }
+           
         }
 
 

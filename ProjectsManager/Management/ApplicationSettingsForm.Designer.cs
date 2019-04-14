@@ -1,6 +1,6 @@
 ﻿namespace ProjectsManager
 {
-    partial class AppSettingsForm
+    partial class ApplicationSettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.TryConnectButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -43,35 +43,35 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.UserNameTextBox = new System.Windows.Forms.TextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.SQLAuthRadioButton = new System.Windows.Forms.RadioButton();
+            this.WindowsAuthRadioButton = new System.Windows.Forms.RadioButton();
             this.ServerComboBox = new System.Windows.Forms.ComboBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DeveloperOptionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.ResetSettingsButton = new System.Windows.Forms.Button();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.BackupTimerTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ReminderTimerTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.LoginAsADuserRadioButton = new System.Windows.Forms.RadioButton();
+            this.ApplicationRadioButton = new System.Windows.Forms.RadioButton();
+            this.DomainAuthRadioButton = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.CancelButton = new System.Windows.Forms.Button();
+            this.ListServersBGW = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.DeveloperOptionsGroupBox.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,31 +95,31 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Database";
             // 
-            // button1
+            // SaveButton
             // 
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(4, 378);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "حفظ";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SaveButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.SaveButton.Location = new System.Drawing.Point(4, 378);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 6;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
-            // button2
+            // TryConnectButton
             // 
-            this.button2.Location = new System.Drawing.Point(20, 312);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "محاولة اتصال";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.TryConnectButton.Location = new System.Drawing.Point(20, 312);
+            this.TryConnectButton.Name = "TryConnectButton";
+            this.TryConnectButton.Size = new System.Drawing.Size(75, 23);
+            this.TryConnectButton.TabIndex = 3;
+            this.TryConnectButton.Text = "Try Connect";
+            this.TryConnectButton.UseVisualStyleBackColor = true;
+            this.TryConnectButton.Click += new System.EventHandler(this.TryButton_Click);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -132,7 +132,7 @@
             // 
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.TryConnectButton);
             this.tabPage1.Controls.Add(this.ServerComboBox);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -140,7 +140,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(362, 346);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "قاعدة البيانات";
+            this.tabPage1.Text = "Database";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -173,8 +173,8 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.UserNameTextBox);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.SQLAuthRadioButton);
+            this.groupBox1.Controls.Add(this.WindowsAuthRadioButton);
             this.groupBox1.Location = new System.Drawing.Point(20, 52);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -207,7 +207,7 @@
             this.TimeoutTextBox.Name = "TimeoutTextBox";
             this.TimeoutTextBox.Size = new System.Drawing.Size(54, 20);
             this.TimeoutTextBox.TabIndex = 4;
-            this.TimeoutTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
+            this.TimeoutTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TimeoutTextBox_KeyPress);
             // 
             // label6
             // 
@@ -234,29 +234,29 @@
             this.UserNameTextBox.Size = new System.Drawing.Size(180, 20);
             this.UserNameTextBox.TabIndex = 2;
             // 
-            // radioButton2
+            // SQLAuthRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(32, 43);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(173, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Use SQL Server Authentication";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.SQLAuthRadioButton.AutoSize = true;
+            this.SQLAuthRadioButton.Checked = true;
+            this.SQLAuthRadioButton.Location = new System.Drawing.Point(32, 43);
+            this.SQLAuthRadioButton.Name = "SQLAuthRadioButton";
+            this.SQLAuthRadioButton.Size = new System.Drawing.Size(173, 17);
+            this.SQLAuthRadioButton.TabIndex = 1;
+            this.SQLAuthRadioButton.TabStop = true;
+            this.SQLAuthRadioButton.Text = "Use SQL Server Authentication";
+            this.SQLAuthRadioButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // WindowsAuthRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Enabled = false;
-            this.radioButton1.Location = new System.Drawing.Point(32, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(162, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Use Windows Authentication";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.WindowsAuthRadioButton.AutoSize = true;
+            this.WindowsAuthRadioButton.Enabled = false;
+            this.WindowsAuthRadioButton.Location = new System.Drawing.Point(32, 19);
+            this.WindowsAuthRadioButton.Name = "WindowsAuthRadioButton";
+            this.WindowsAuthRadioButton.Size = new System.Drawing.Size(162, 17);
+            this.WindowsAuthRadioButton.TabIndex = 0;
+            this.WindowsAuthRadioButton.TabStop = true;
+            this.WindowsAuthRadioButton.Text = "Use Windows Authentication";
+            this.WindowsAuthRadioButton.UseVisualStyleBackColor = true;
             // 
             // ServerComboBox
             // 
@@ -266,51 +266,51 @@
             this.ServerComboBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ServerComboBox.Size = new System.Drawing.Size(180, 21);
             this.ServerComboBox.TabIndex = 1;
-            this.ServerComboBox.DropDown += new System.EventHandler(this.comboBox1_DropDown);
+            this.ServerComboBox.DropDown += new System.EventHandler(this.ServerComboBox_DropDown);
             // 
-            // tabPage3
+            // tabPage2
             // 
-            this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.radioButton4);
-            this.tabPage3.Controls.Add(this.LoginAsADuserRadioButton);
-            this.tabPage3.Controls.Add(this.label8);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(362, 346);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "اعدادات";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.DeveloperOptionsGroupBox);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.ApplicationRadioButton);
+            this.tabPage2.Controls.Add(this.DomainAuthRadioButton);
+            this.tabPage2.Controls.Add(this.label8);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(362, 346);
+            this.tabPage2.TabIndex = 2;
+            this.tabPage2.Text = "Settings";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // DeveloperOptionsGroupBox
             // 
-            this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.checkBox3);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Location = new System.Drawing.Point(8, 127);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox3.Size = new System.Drawing.Size(283, 213);
-            this.groupBox3.TabIndex = 38;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Dev";
+            this.DeveloperOptionsGroupBox.Controls.Add(this.ResetSettingsButton);
+            this.DeveloperOptionsGroupBox.Controls.Add(this.checkBox3);
+            this.DeveloperOptionsGroupBox.Controls.Add(this.checkBox2);
+            this.DeveloperOptionsGroupBox.Controls.Add(this.label9);
+            this.DeveloperOptionsGroupBox.Controls.Add(this.label10);
+            this.DeveloperOptionsGroupBox.Controls.Add(this.label3);
+            this.DeveloperOptionsGroupBox.Controls.Add(this.BackupTimerTextBox);
+            this.DeveloperOptionsGroupBox.Controls.Add(this.label4);
+            this.DeveloperOptionsGroupBox.Controls.Add(this.ReminderTimerTextBox);
+            this.DeveloperOptionsGroupBox.Location = new System.Drawing.Point(8, 127);
+            this.DeveloperOptionsGroupBox.Name = "DeveloperOptionsGroupBox";
+            this.DeveloperOptionsGroupBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DeveloperOptionsGroupBox.Size = new System.Drawing.Size(283, 213);
+            this.DeveloperOptionsGroupBox.TabIndex = 38;
+            this.DeveloperOptionsGroupBox.TabStop = false;
+            this.DeveloperOptionsGroupBox.Text = "Dev";
             // 
-            // button3
+            // ResetSettingsButton
             // 
-            this.button3.Location = new System.Drawing.Point(10, 184);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(87, 23);
-            this.button3.TabIndex = 39;
-            this.button3.Text = "ResetSettings";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.ResetSettingsButton.Location = new System.Drawing.Point(10, 184);
+            this.ResetSettingsButton.Name = "ResetSettingsButton";
+            this.ResetSettingsButton.Size = new System.Drawing.Size(87, 23);
+            this.ResetSettingsButton.TabIndex = 39;
+            this.ResetSettingsButton.Text = "Reset Settings";
+            this.ResetSettingsButton.UseVisualStyleBackColor = true;
+            this.ResetSettingsButton.Click += new System.EventHandler(this.ResetSettingsButton_Click);
             // 
             // checkBox3
             // 
@@ -359,12 +359,12 @@
             this.label3.TabIndex = 36;
             this.label3.Text = "Sec";
             // 
-            // textBox4
+            // BackupTimerTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(96, 13);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 32;
+            this.BackupTimerTextBox.Location = new System.Drawing.Point(96, 13);
+            this.BackupTimerTextBox.Name = "BackupTimerTextBox";
+            this.BackupTimerTextBox.Size = new System.Drawing.Size(100, 20);
+            this.BackupTimerTextBox.TabIndex = 32;
             // 
             // label4
             // 
@@ -375,12 +375,12 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "Sec";
             // 
-            // textBox3
+            // ReminderTimerTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(96, 39);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 34;
+            this.ReminderTimerTextBox.Location = new System.Drawing.Point(96, 39);
+            this.ReminderTimerTextBox.Name = "ReminderTimerTextBox";
+            this.ReminderTimerTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ReminderTimerTextBox.TabIndex = 34;
             // 
             // label11
             // 
@@ -390,32 +390,32 @@
             this.label11.Location = new System.Drawing.Point(8, 39);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.Size = new System.Drawing.Size(124, 13);
             this.label11.TabIndex = 37;
-            this.label11.Text = "label11";
-            this.label11.DoubleClick += new System.EventHandler(this.label11_DoubleClick);
+            this.label11.Text = "Developer Options Label";
+            this.label11.DoubleClick += new System.EventHandler(this.DeveloperOptionsLabel_DoubleClick);
             // 
-            // radioButton4
+            // ApplicationRadioButton
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(73, 91);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(281, 17);
-            this.radioButton4.TabIndex = 2;
-            this.radioButton4.Text = "اسم مستخدم وكلمة مرور (Application Authentication)";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.ApplicationRadioButton.AutoSize = true;
+            this.ApplicationRadioButton.Location = new System.Drawing.Point(73, 91);
+            this.ApplicationRadioButton.Name = "ApplicationRadioButton";
+            this.ApplicationRadioButton.Size = new System.Drawing.Size(281, 17);
+            this.ApplicationRadioButton.TabIndex = 2;
+            this.ApplicationRadioButton.Text = "اسم مستخدم وكلمة مرور (Application Authentication)";
+            this.ApplicationRadioButton.UseVisualStyleBackColor = true;
             // 
-            // LoginAsADuserRadioButton
+            // DomainAuthRadioButton
             // 
-            this.LoginAsADuserRadioButton.AutoSize = true;
-            this.LoginAsADuserRadioButton.Checked = true;
-            this.LoginAsADuserRadioButton.Location = new System.Drawing.Point(98, 68);
-            this.LoginAsADuserRadioButton.Name = "LoginAsADuserRadioButton";
-            this.LoginAsADuserRadioButton.Size = new System.Drawing.Size(256, 17);
-            this.LoginAsADuserRadioButton.TabIndex = 1;
-            this.LoginAsADuserRadioButton.TabStop = true;
-            this.LoginAsADuserRadioButton.Text = "حساب ويندوز من مجال (Windows Authentication)";
-            this.LoginAsADuserRadioButton.UseVisualStyleBackColor = true;
+            this.DomainAuthRadioButton.AutoSize = true;
+            this.DomainAuthRadioButton.Checked = true;
+            this.DomainAuthRadioButton.Location = new System.Drawing.Point(98, 68);
+            this.DomainAuthRadioButton.Name = "DomainAuthRadioButton";
+            this.DomainAuthRadioButton.Size = new System.Drawing.Size(256, 17);
+            this.DomainAuthRadioButton.TabIndex = 1;
+            this.DomainAuthRadioButton.TabStop = true;
+            this.DomainAuthRadioButton.Text = "حساب ويندوز من مجال (Windows Authentication)";
+            this.DomainAuthRadioButton.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -450,40 +450,39 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(30, 17);
             this.toolStripStatusLabel1.Text = "جاهز";
             // 
-            // button6
+            // CancelButton
             // 
-            this.button6.Location = new System.Drawing.Point(283, 378);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 7;
-            this.button6.Text = "إلغاء";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.CancelButton.Location = new System.Drawing.Point(283, 378);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.TabIndex = 7;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // backgroundWorker1
+            // ListServersBGW
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            this.ListServersBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ListServersBGW_DoWork);
+            this.ListServersBGW.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ListServersBGW_RunWorkerCompleted);
             // 
-            // AppSettingsForm
+            // ApplicationSettingsForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(370, 426);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SaveButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AppSettingsForm";
+            this.Name = "ApplicationSettingsForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "إعدادات البرنامج";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Load += new System.EventHandler(this.ApplicationSettingsForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -491,10 +490,10 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.DeveloperOptionsGroupBox.ResumeLayout(false);
+            this.DeveloperOptionsGroupBox.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -506,8 +505,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button TryConnectButton;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -517,31 +516,31 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox UserNameTextBox;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton SQLAuthRadioButton;
+        private System.Windows.Forms.RadioButton WindowsAuthRadioButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TimeoutTextBox;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton LoginAsADuserRadioButton;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.RadioButton ApplicationRadioButton;
+        private System.Windows.Forms.RadioButton DomainAuthRadioButton;
         private System.Windows.Forms.Label label8;
         private ProtectedTextBox PassTextBox;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.ToolStripProgressBar ProgressBar1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.ComponentModel.BackgroundWorker ListServersBGW;
         public System.Windows.Forms.ComboBox ServerComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox ReminderTimerTextBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox BackupTimerTextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox DeveloperOptionsGroupBox;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button ResetSettingsButton;
 
     }
 }

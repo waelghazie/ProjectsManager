@@ -9,7 +9,6 @@ using Microsoft.SqlServer.Management.Common;
 using System.Diagnostics;
 using Microsoft.Win32;
 
-
 namespace ProjectsManager
 {
     public partial class ApplicationWizardForm : Form
@@ -19,16 +18,15 @@ namespace ProjectsManager
             InitializeComponent();
         }
 
-        Server Server;
-        
-        string script;
-        bool AreServersListed = false;
-        public bool SuccessDBCreation = false;
-        public bool SuccessDBConnect = false;
-        bool DatabasesListed = false;
-        string SelectedServer, SelectedDB;
+        public bool IsDatabasCreated = false;
+        public bool IsDatabaseConnected = false;
 
-        SqlDataSourceEnumerator instance;
+        Server Server;
+        string Script;
+        bool AreServersListed = false;
+        bool AreDatabasesListed = false;
+        string SelectedServer, SelectedDatabase;
+        SqlDataSourceEnumerator Instance;
         DataTable ServersDatatable, DatabasesDatatable;
 
         private void ApplicationWizardForm_Load(object sender, EventArgs e)
@@ -42,7 +40,7 @@ namespace ProjectsManager
             ProgressBar1.Style = ProgressBarStyle.Marquee;
             ProgressBar1.MarqueeAnimationSpeed = 30;
 
-            instance = SqlDataSourceEnumerator.Instance;
+            Instance = SqlDataSourceEnumerator.Instance;
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -50,13 +48,13 @@ namespace ProjectsManager
             if ((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || e.KeyChar == (char)Keys.Back || (e.KeyChar >= '0' && e.KeyChar <= '9'))
                 e.Handled = false;
             else
-            { e.Handled = true; }
+             e.Handled = true; 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             if (DontShowAgainCheckBox.Checked)
-                ModifyRegistry();
+                SetFirstRunFlag();
             Close();
         }
 
@@ -69,41 +67,36 @@ namespace ProjectsManager
                     Connection.Open();
                     Server = new Server(new ServerConnection(Connection));
 
-                    script = Properties.Resources.DB_script.ToString();
-                    script = script.Replace("Param1", SelectedDB);
-                    script = script.Replace("Param2", PathCreateTextBox.Text);
+                    Script = Properties.Resources.DB_script.ToString();
+                    Script = Script.Replace("Param1", SelectedDatabase);
+                    Script = Script.Replace("Param2", PathCreateTextBox.Text);
+                    Server.ConnectionContext.ExecuteNonQuery(Script);
 
-                    Server.ConnectionContext.ExecuteNonQuery(script);
-                    //toolStripStatusLabel1.Text = "تم إنشاء قاعدة البيانات";
+                    Script = Properties.Resources.Tables_script.ToString();
+                    Script = Script.Replace("Param1", SelectedDatabase);
 
-                    script = Properties.Resources.Tables_script.ToString();
-                    script = script.Replace("Param1", SelectedDB);
+                    Server.ConnectionContext.ExecuteNonQuery(Script);
 
-                    Server.ConnectionContext.ExecuteNonQuery(script);
-                    //toolStripStatusLabel1.Text = "تم إنشاء الجداول";
+                    Script = Properties.Resources.Views_script.ToString();
+                    Script = Script.Replace("Param1", SelectedDatabase);
 
-                    script = Properties.Resources.Views_script.ToString();
-                    script = script.Replace("Param1", SelectedDB);
+                    Server.ConnectionContext.ExecuteNonQuery(Script);
 
-                    Server.ConnectionContext.ExecuteNonQuery(script);
-                    //toolStripStatusLabel1.Text = "تم إنشاء  views";
-
-                    SqlCommand Command = new SqlCommand(@"INSERT INTO [" + SelectedDB + @"].[dbo].[users]
+                    SqlCommand Command = new SqlCommand(@"INSERT INTO [" + SelectedDatabase + @"].[dbo].[users]
                     ([displayname],[username],[password],[read],[modify],[create]
                     ,[delete],[ManageUsers],[isdomainuser])
                     VALUES ('System Administrator','admin','" + Encryption.Encrypt("0000") + "',1,1,1,1,1,0)", Connection);
                     Command.ExecuteNonQuery();
-                    //toolStripStatusLabel1.Text = "تم إنشاء حساب المدير ";
 
-                    Command.CommandText = @"INSERT INTO [" + SelectedDB + @"].[dbo].[appsettings] ([DatabaseName],[BackupInterval]) VALUES ('" + DatabaseCreateTextBox.Text + "',2)";
+                    Command.CommandText = @"INSERT INTO [" + SelectedDatabase + @"].[dbo].[appsettings] ([DatabaseName],[BackupInterval]) VALUES ('" + DatabaseCreateTextBox.Text + "',2)";
                     Command.ExecuteNonQuery();
-                    //toolStripStatusLabel1.Text = "تم إنشاء سجل اعدادات البرنامج";
 
-                    SuccessDBCreation = true;
+                    IsDatabasCreated = true;
                 }
                 catch (Exception exp)
                 {
-                    MessageBox.Show(exp.Message + "\n" + exp.InnerException, "حدث خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(exp.Message + "\n" + exp.InnerException, "حدث خطأ", MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
                 }
             }
         }
@@ -113,7 +106,7 @@ namespace ProjectsManager
             ProgressBar1.Visible = false;
             NextButton.Visible = true;
 
-            if (SuccessDBCreation)
+            if (IsDatabasCreated)
             {
                 PreviousButton.Visible = false;
                 tablessControl.SelectedIndex = 4;
@@ -126,7 +119,7 @@ namespace ProjectsManager
 
         private void GetServersBGW_DoWork(object sender, DoWorkEventArgs e)
         {
-            ServersDatatable = instance.GetDataSources();
+            ServersDatatable = Instance.GetDataSources();
             AreServersListed = true;
         }
 
@@ -142,22 +135,26 @@ namespace ProjectsManager
 
         private void NextButton_Click(object sender, EventArgs e)
         {
+            ReadUserChoice();
+        }
+
+        private void ReadUserChoice()
+        {
             switch (tablessControl.SelectedIndex)
             {
-                case 0: //welcome
+                case 0:                     //welcome
                     PreviousButton.Visible = true;
                     tablessControl.SelectedIndex = 1;
                     break;
-                case 1: //choose
+                case 1:                     //choose
                     if (CreateRadioButton.Checked)
                         tablessControl.SelectedIndex = 2;
                     else if (ConnectRadioButton.Checked)
                         tablessControl.SelectedIndex = 5;
                     break;
-                case 2:         //create1
+                case 2:                     //create1
                     if (SQLexprRadioButton.Checked)
                     {
-                        
                         ServerCreateComboBox.Text = SystemInformation.ComputerName + @"\SQLEXPRESS2012";
                         if (!CheckOS32or64.IsOS64Bit())
                             PathCreateTextBox.Text = @"C:\Program Files\Microsoft SQL Server\MSSQL11.SQLEXPRESS2012\MSSQL\DATA";
@@ -170,7 +167,6 @@ namespace ProjectsManager
                     }
                     else if (SQLRadioButton.Checked)
                     {
-
                         ServerCreateComboBox.Text = @"";
                         PathCreateTextBox.Text = @"";
                         UsernameCreateTextBox.Text = @"";
@@ -178,7 +174,7 @@ namespace ProjectsManager
                         tablessControl.SelectedIndex = 3;
                     }
                     break;
-                case 3:         //Create database
+                case 3:                         //Create database
                     if (DatabaseCreateTextBox.Text == "" || ServerCreateComboBox.Text == "" || UsernameCreateTextBox.Text == "" || PasswordCreateTextBox.Text == "" || TimeOutTextBox.Text == "" || PathCreateTextBox.Text == "")
                         MessageBox.Show("الرجاء تحديد كافة البيانات", "تنبيه", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     else
@@ -189,39 +185,39 @@ namespace ProjectsManager
 
                         ProgressBar1.Visible = true;
                         SelectedServer = ServerCreateComboBox.Text;
-                        SelectedDB = DatabaseCreateTextBox.Text;
+                        SelectedDatabase = DatabaseCreateTextBox.Text;
 
-                        CreateDatabaseBGW.RunWorkerAsync();   //create Database in another thread
+                        CreateDatabaseBGW.RunWorkerAsync(); 
                     }
                     break;
-                case 4:         //Choose backup folder
+                case 4:                      //Choose backup folder
                     if (System.IO.Directory.Exists(BackupPathTextBox.Text))
                         tablessControl.SelectedIndex = 7;
 
                     break;
-                case 5:          //Conenct to existing Database
-                    if (TryToConnectToDB())
+                case 5:                 //Conenct to existing Database
+                    if (TryConnectToDatabase())
                     {
-                        SuccessDBConnect = true;
+                        IsDatabaseConnected = true;
                         tablessControl.SelectedIndex = 6;
                         PreviousButton.Visible = false;
                     }
                     break;
 
-                case 6: //option 
+                case 6:                     //option 
                     if (LoginAsADuserRadioButton.Checked || AppLoginRadioButton.Checked)
                     {
                         tablessControl.SelectedIndex = 7;
                         NextButton.Text = "إنهاء";
-                        if (SuccessDBCreation)
+                        if (IsDatabasCreated)
                             SuccessLabel.Text = "تم إنشاء قاعدة البيانات بنجاح " + DatabaseCreateTextBox.Text + "\n يرجى تعيين الاعدادات الخاصة" + "\n" + "ستتم اعادة تشغيل البرنامج";
-                        if (SuccessDBConnect)
+                        if (IsDatabaseConnected)
                             SuccessLabel.Text = "تم الاتصال بنجاح مع قاعدة البيانات";
                     }
                     break;
 
-                case 7: //success
-                    if (SuccessDBCreation)    //Restart Application
+                case 7:                         //success
+                    if (IsDatabasCreated)   
                     {
                         Settings1.Default.SQLServer = ServerCreateComboBox.Text;
                         Settings1.Default.DatabaseName = DatabaseCreateTextBox.Text;
@@ -229,7 +225,7 @@ namespace ProjectsManager
                         Settings1.Default.SqlPassword = PasswordCreateTextBox.Text;
                         Settings1.Default.ServerConnectTimeout = 15;
                         Settings1.Default.LoginAsADUser = LoginAsADuserRadioButton.Checked;
-                        
+
                         Settings1.Default.Save();
 
                         using (SqlConnection Connection = AppConnection.GetConnection())
@@ -243,9 +239,9 @@ namespace ProjectsManager
                             Command.Parameters.Clear();
                         }
 
-                        ModifyRegistry();
+                        SetFirstRunFlag();
 
-                        ProcessStartInfo Info = new ProcessStartInfo();
+                        ProcessStartInfo Info = new ProcessStartInfo();      //Restart Application
                         Info.Arguments = "/C ping 127.0.0.1 -n 2 && \"" + Application.ExecutablePath + "\"";
                         Info.WindowStyle = ProcessWindowStyle.Hidden;
                         Info.CreateNoWindow = true;
@@ -253,7 +249,7 @@ namespace ProjectsManager
                         Process.Start(Info);
                         Application.Exit();
                     }
-                    else if (SuccessDBConnect)
+                    else if (IsDatabaseConnected)
                     {
                         Settings1.Default.SQLServer = ServerConnectComboBox.Text;
                         Settings1.Default.DatabaseName = DatabaseConnectComboBox.Text;
@@ -263,7 +259,7 @@ namespace ProjectsManager
                         Settings1.Default.LoginAsADUser = LoginAsADuserRadioButton.Checked;
                         Settings1.Default.Save();
 
-                        ModifyRegistry();
+                        SetFirstRunFlag();
 
                         Close();
                     }
@@ -283,7 +279,10 @@ namespace ProjectsManager
             }
         }
 
-        private void ModifyRegistry()       //Write "1" in \HKEY_LOCAL_MACHINE\SOFTWARE\ApplicationManufacturer\Settings\FirstRun 
+        /// <summary>
+        /// Write "1" in \HKEY_LOCAL_MACHINE\SOFTWARE\ApplicationManufacturer\Settings\FirstRun 
+        /// </summary>
+        private void SetFirstRunFlag()       
         {
             if (CheckOS32or64.IsOS64Bit())
             {
@@ -300,7 +299,7 @@ namespace ProjectsManager
         }
 
 
-        private bool TryToConnectToDB()
+        private bool TryConnectToDatabase()
         {
             if (ServerConnectComboBox.Text != "" && DatabaseConnectComboBox.Text != "" && UsernameConnectTextBox.Text != "" && PasswordConnectTextBox.Text != "")
             {
@@ -325,10 +324,12 @@ namespace ProjectsManager
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            TryToConnectToDB();
+            TryConnectToDatabase();
         }
-
-        private void ServerConnectComboBox_DropDown(object sender, EventArgs e)            //get list of servers
+        /// <summary>
+        /// Get list of servers
+        /// </summary>
+        private void ServerConnectComboBox_DropDown(object sender, EventArgs e)            
         {
             if (!AreServersListed)
             {
@@ -337,8 +338,10 @@ namespace ProjectsManager
                     GetServersBGW.RunWorkerAsync();
             }
         }
-
-        private void ServerCreateComboBox_DropDown(object sender, EventArgs e)            //get list of servers
+        /// <summary>
+        /// Get list of servers
+        /// </summary>
+        private void ServerCreateComboBox_DropDown(object sender, EventArgs e)            
         {
             if (!AreServersListed)
             {
@@ -350,7 +353,7 @@ namespace ProjectsManager
 
         private void DatabaseConnectComboBox_DropDown(object sender, EventArgs e)
         {
-            if (!DatabasesListed)
+            if (!AreDatabasesListed)
             {
                 using (SqlConnection Connection = new SqlConnection(@"Data Source=" + ServerConnectComboBox.Text + ";User ID=" + UsernameConnectTextBox.Text + ";Password=" + PasswordConnectTextBox.Text + ";Connect Timeout=15"))
                 {
@@ -361,7 +364,7 @@ namespace ProjectsManager
                         Adapter.Fill(DatabasesDatatable);
                         DatabaseConnectComboBox.DisplayMember = "name";
                         DatabaseConnectComboBox.DataSource = DatabasesDatatable;
-                        DatabasesListed = true;
+                        AreDatabasesListed = true;
 
                     }
                     catch (Exception exp)
@@ -380,12 +383,6 @@ namespace ProjectsManager
             if (resualt == System.Windows.Forms.DialogResult.OK)
                 BackupPathTextBox.Text = fd.SelectedPath;
         }
-
-
-
-
-
-
 
     }
 }

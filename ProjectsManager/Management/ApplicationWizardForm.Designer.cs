@@ -72,7 +72,7 @@
             this.BackupPathButton = new System.Windows.Forms.Button();
             this.BackupPathTextBox = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ConnectTryButton = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.PasswordConnectTextBox = new ProjectsManager.ProtectedTextBox();
             this.ServerConnectComboBox = new System.Windows.Forms.ComboBox();
@@ -557,7 +557,7 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.button2);
+            this.tabPage6.Controls.Add(this.ConnectTryButton);
             this.tabPage6.Controls.Add(this.label21);
             this.tabPage6.Controls.Add(this.PasswordConnectTextBox);
             this.tabPage6.Controls.Add(this.ServerConnectComboBox);
@@ -575,15 +575,15 @@
             this.tabPage6.Text = "open 5";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // ConnectTryButton
             // 
-            this.button2.Location = new System.Drawing.Point(146, 229);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "محاولة اتصال";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.ConnectTryButton.Location = new System.Drawing.Point(146, 229);
+            this.ConnectTryButton.Name = "ConnectTryButton";
+            this.ConnectTryButton.Size = new System.Drawing.Size(75, 23);
+            this.ConnectTryButton.TabIndex = 5;
+            this.ConnectTryButton.Text = "محاولة اتصال";
+            this.ConnectTryButton.UseVisualStyleBackColor = true;
+            this.ConnectTryButton.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // label21
             // 
@@ -687,21 +687,21 @@
             // AppLoginRadioButton
             // 
             this.AppLoginRadioButton.AutoSize = true;
-            this.AppLoginRadioButton.Location = new System.Drawing.Point(156, 108);
+            this.AppLoginRadioButton.Location = new System.Drawing.Point(217, 104);
             this.AppLoginRadioButton.Name = "AppLoginRadioButton";
-            this.AppLoginRadioButton.Size = new System.Drawing.Size(273, 17);
+            this.AppLoginRadioButton.Size = new System.Drawing.Size(200, 17);
             this.AppLoginRadioButton.TabIndex = 5;
-            this.AppLoginRadioButton.Text = "اسم مستخدم وكلمة مرور Application Authentication";
+            this.AppLoginRadioButton.Text = "اسم مستخدم وكلمة مرور Application";
             this.AppLoginRadioButton.UseVisualStyleBackColor = true;
             // 
             // LoginAsADuserRadioButton
             // 
             this.LoginAsADuserRadioButton.AutoSize = true;
-            this.LoginAsADuserRadioButton.Location = new System.Drawing.Point(160, 85);
+            this.LoginAsADuserRadioButton.Location = new System.Drawing.Point(217, 81);
             this.LoginAsADuserRadioButton.Name = "LoginAsADuserRadioButton";
-            this.LoginAsADuserRadioButton.Size = new System.Drawing.Size(269, 17);
+            this.LoginAsADuserRadioButton.Size = new System.Drawing.Size(199, 17);
             this.LoginAsADuserRadioButton.TabIndex = 4;
-            this.LoginAsADuserRadioButton.Text = "حساب مجال ويندوز Windows Domain Authentication";
+            this.LoginAsADuserRadioButton.Text = "حساب مجال ويندوز Windows Domain ";
             this.LoginAsADuserRadioButton.UseVisualStyleBackColor = true;
             // 
             // label22
@@ -832,7 +832,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox UsernameConnectTextBox;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ConnectTryButton;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.RadioButton AppLoginRadioButton;
         private System.Windows.Forms.RadioButton LoginAsADuserRadioButton;

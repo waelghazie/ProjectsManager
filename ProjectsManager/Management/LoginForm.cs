@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Security.Principal;
-using Microsoft.Win32;
-using System.Runtime.InteropServices;
 
 namespace ProjectsManager
 {
@@ -20,39 +14,18 @@ namespace ProjectsManager
         }
 
         public User user;
-
         public bool Authorized = false;
         public bool CloseApplication = false;
 
         int LoginTries;
 
-        const int AW_HOR_POSITIVE = 1;
-        const int AW_HOR_NEGATIVE = 2;
-        const int AW_VER_POSITIVE = 4;
-        const int AW_VER_NEGATIVE = 8;
-        const int AW_HIDE = 65536;
-        const int AW_ACTIVATE = 131072;
-        const int AW_SLIDE = 262144;
-        const int AW_BLEND = 524288;
-        const int AW_CENTER = 0x00000010;
-
-        [DllImport("user32", CharSet = CharSet.Auto)]
-        private static extern int AnimateWindow(IntPtr hwnd, int dwTime, int dwFlags);
-
-        protected override void OnLoad(EventArgs e)
-        {
-            //Animate Window
-            base.OnLoad(e);
-            AnimateWindow(Handle, 500, AW_BLEND);
-        }
-
-        private void LoginWindow_Load(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
             PasswordTextBox.Text = "";
             user = new User();
             Authorized = false;
-            label5.Text = InputLanguage.CurrentInputLanguage.Culture.TwoLetterISOLanguageName.ToUpper();
-            label4.Text = "";
+            LanguageLabel.Text = InputLanguage.CurrentInputLanguage.Culture.TwoLetterISOLanguageName.ToUpper();
+            PasswordStatusLabel.Text = "";
             LoginTries = 0;
             UserNameTextBox.Text = Settings1.Default.ApplicationUsername;
 
@@ -61,10 +34,10 @@ namespace ProjectsManager
                     Close();
             
             DatabaseLabel.Text = Settings1.Default.DatabaseName;
-            label6.ForeColor = Color.WhiteSmoke;
+            QuickLoginLabel.ForeColor = Color.WhiteSmoke;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
             LoginAsNormalUser();
         }
@@ -118,13 +91,13 @@ namespace ProjectsManager
                     }
                     else
                     {
-                        label4.Text = "كلمة السر خطأ";
+                        PasswordStatusLabel.Text = "كلمة السر غير صحيحة";
                         PasswordTextBox.Focus();
                     }
                 }
                 else
                 {
-                    label4.Text = "اسم المستخدم خطأ أو غير موجود";
+                    PasswordStatusLabel.Text = "اسم المستخدم خطأ أو غير موجود";
                     UserNameTextBox.Focus();
                 }
 
@@ -135,12 +108,13 @@ namespace ProjectsManager
             }
         }
 
-        private bool LoginAsADUser()            //Login as Active Directory User
+        /// <summary>
+        /// Use Active Directory Authentication
+        /// </summary>
+        /// <returns></returns>
+        private bool LoginAsADUser()         
         {
-            //بحث عن معرف المستخدم المطابق لمعرف موجود ضمن جدول المستخدمين في قاعدة البيانات
-            //search for user in DB who has SID equals current windows SID
-
-            //get current user SID from local machine - Windows // using System.Security.Principal;
+            //get current user SID from local machine
             WindowsIdentity WindowsUser = WindowsIdentity.GetCurrent();
             SecurityIdentifier SID = WindowsUser.User;
 
@@ -187,29 +161,29 @@ namespace ProjectsManager
             }
         }
 
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        private void UserNameTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
                 LoginAsNormalUser();
 
-            label5.Text = InputLanguage.CurrentInputLanguage.Culture.TwoLetterISOLanguageName.ToUpper();
+            LanguageLabel.Text = InputLanguage.CurrentInputLanguage.Culture.TwoLetterISOLanguageName.ToUpper();
         }
 
-        private void textBox2_KeyUp(object sender, KeyEventArgs e)
+        private void PasswordTextBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
                 LoginAsNormalUser();
 
-            label5.Text = InputLanguage.CurrentInputLanguage.Culture.TwoLetterISOLanguageName.ToUpper();
+            LanguageLabel.Text = InputLanguage.CurrentInputLanguage.Culture.TwoLetterISOLanguageName.ToUpper();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ExitButton_Click(object sender, EventArgs e)
         {
             CloseApplication = true;
             Close();
         }
 
-        private void label6_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void QuickLogingLabel_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             PasswordTextBox.Text = Encryption.Decrypt(Settings1.Default.ApplicationPassword);
 
@@ -230,7 +204,7 @@ namespace ProjectsManager
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
         }

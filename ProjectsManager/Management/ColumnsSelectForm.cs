@@ -20,7 +20,7 @@ namespace ProjectsManager
          String PlantColumnFilter;
 
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             if (InstituteName.Checked)
                 InstituteColumnFilter += @",[name] as [اسم المنشأة]";

@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Data.Sql;
 using System.Data.SqlClient;
 
 namespace ProjectsManager
 {
-    public partial class DBSettingsForm : Form
+    public partial class DataSettingsForm : Form
     {
 
-        public DBSettingsForm(User user)
+        public DataSettingsForm(User user)
         {
             this.user = user;
             InitializeComponent();
@@ -22,7 +16,7 @@ namespace ProjectsManager
 
         User user;
 
-        private void AppSettings_Load(object sender, EventArgs e)
+        private void DataSettingsForm_Load(object sender, EventArgs e)
         {
             using (SqlConnection Connection = AppConnection.GetConnection())
             {
@@ -37,7 +31,7 @@ namespace ProjectsManager
                         if (!Reader.IsDBNull(1))
                             BackupPathTextBox.Text = Reader.GetString(1);
                         if (!Reader.IsDBNull(2))
-                            comboBox1.Text = Convert.ToString(Reader.GetInt32(2));
+                            HoursComboBox.Text = Convert.ToString(Reader.GetInt32(2));
                     }
             }
 
@@ -47,18 +41,18 @@ namespace ProjectsManager
                 BackupPathTextBox.Enabled = false;
 
                 SaveButton.Visible = false;
-                BrowseButton1.Visible = false;
-                BroseButton2.Visible = false;
-                comboBox1.Enabled = false;
+                BrowseButton.Visible = false;
+                BrowseButton2.Visible = false;
+                HoursComboBox.Enabled = false;
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
             using (SqlConnection Connection = AppConnection.GetConnection())
             {
@@ -68,7 +62,7 @@ namespace ProjectsManager
                 
                 Command.Parameters.Add("@PhotosPath", SqlDbType.NVarChar).Value = PhotosPathTextBox.Text;
                 Command.Parameters.Add("@BackupPath", SqlDbType.NVarChar).Value = BackupPathTextBox.Text;
-                Command.Parameters.Add("@BackupInterval", SqlDbType.Int).Value = Convert.ToInt32(comboBox1.Text);
+                Command.Parameters.Add("@BackupInterval", SqlDbType.Int).Value = Convert.ToInt32(HoursComboBox.Text);
 
                 Command.ExecuteNonQuery();
                 Command.Parameters.Clear();
@@ -76,7 +70,7 @@ namespace ProjectsManager
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void BrowseButton_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fd = new FolderBrowserDialog();
             fd.ShowNewFolderButton = true;
@@ -87,7 +81,7 @@ namespace ProjectsManager
                 PhotosPathTextBox.Text = fd.SelectedPath;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void BrowseButton2_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fd = new FolderBrowserDialog();
             fd.ShowNewFolderButton = true;

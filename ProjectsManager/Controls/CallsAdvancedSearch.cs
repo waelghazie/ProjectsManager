@@ -12,9 +12,9 @@ using System.Diagnostics;
 
 namespace ProjectsManager
 {
-    public partial class CallsAdvancedSearch : Form, INotifyPropertyChanged
+    public partial class CallsSearchPanel : Form, INotifyPropertyChanged
     {
-        public CallsAdvancedSearch()
+        public CallsSearchPanel()
         {
             InitializeComponent();
         }

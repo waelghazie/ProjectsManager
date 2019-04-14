@@ -11,22 +11,21 @@ using Microsoft.Win32;
 
 namespace ProjectsManager
 {
-    public partial class AppSettingsForm : Form
+    public partial class ApplicationSettingsForm : Form
     {
-        public AppSettingsForm()
+        public ApplicationSettingsForm()
         {
             InitializeComponent();
         }
 
-        DataTable DatabasesTable;
-        List<string> ServersList;
-
-        bool ServersAreListed = false;
-        bool DatabasesListed = false;
-
         public bool SuccessConnect = false;
 
-        private void Form2_Load(object sender, EventArgs e)
+        DataTable DatabasesTable;
+        List<string> ServersList;
+        bool AreServersListed = false;
+        bool AreDatabasesListed = false;
+        
+        private void ApplicationSettingsForm_Load(object sender, EventArgs e)
         {
             ServersList = new List<string>();
 
@@ -35,14 +34,13 @@ namespace ProjectsManager
             UserNameTextBox.Text = Settings1.Default.ServerUser;
             PassTextBox.Text = Settings1.Default.SqlPassword;
             TimeoutTextBox.Text = Convert.ToString(Settings1.Default.ServerConnectTimeout);
-            textBox4.Text = Convert.ToString(Settings1.Default.BackupTimer);
-            textBox3.Text = Convert.ToString(Settings1.Default.ReminderTimer);
+            BackupTimerTextBox.Text = Convert.ToString(Settings1.Default.BackupTimer);
+            ReminderTimerTextBox.Text = Convert.ToString(Settings1.Default.ReminderTimer);
             
             if (Settings1.Default.LoginAsADUser)
-                LoginAsADuserRadioButton.Checked = true;
+                DomainAuthRadioButton.Checked = true;
             else
-                radioButton4.Checked = true;
-
+                ApplicationRadioButton.Checked = true;
             
             DatabasesTable = new DataTable();
 
@@ -50,10 +48,10 @@ namespace ProjectsManager
             ProgressBar1.MarqueeAnimationSpeed = 30;
             ProgressBar1.Visible = false;
             label11.ForeColor = Color.White;
-            groupBox3.Visible = false;
+            DeveloperOptionsGroupBox.Visible = false;
         }
 
-        private bool TryToConnectToDB()
+        private bool TryToConnectToDatabase()
         {
             if (ServerComboBox.Text != "" && DatabaseComboBox.Text != "" && UserNameTextBox.Text != "" && PassTextBox.Text != "")
             {
@@ -76,20 +74,20 @@ namespace ProjectsManager
             return false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (TryToConnectToDB())
+            if (TryToConnectToDatabase())
             {
                 Settings1.Default.SQLServer = ServerComboBox.Text;
                 Settings1.Default.DatabaseName = DatabaseComboBox.Text;
                 Settings1.Default.ServerUser = UserNameTextBox.Text;
                 Settings1.Default.SqlPassword = PassTextBox.Text;
                 Settings1.Default.ServerConnectTimeout = Convert.ToInt32(TimeoutTextBox.Text);
-                Settings1.Default.LoginAsADUser = LoginAsADuserRadioButton.Checked;
-                Settings1.Default.BackupTimer = Convert.ToInt32(textBox4.Text);
-                Settings1.Default.ReminderTimer = Convert.ToInt32(textBox3.Text);
+                Settings1.Default.LoginAsADUser = DomainAuthRadioButton.Checked;
+                Settings1.Default.BackupTimer = Convert.ToInt32(BackupTimerTextBox.Text);
+                Settings1.Default.ReminderTimer = Convert.ToInt32(ReminderTimerTextBox.Text);
 
-                if (groupBox3.Visible)
+                if (DeveloperOptionsGroupBox.Visible)
                 {
                     Settings1.Default.AutoLogin = checkBox2.Checked;
 
@@ -113,13 +111,12 @@ namespace ProjectsManager
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void TryButton_Click(object sender, EventArgs e)
         {
-            //try connection button
-            TryToConnectToDB();
+            TryToConnectToDatabase();
         }
 
-        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        private void TimeoutTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
@@ -133,11 +130,12 @@ namespace ProjectsManager
             }
         }
 
+        /// <summary>
+        /// Get a list of Databases
+        /// </summary>
         private void DatabaseComboBox_DropDown(object sender, EventArgs e)
         {
-            //get a list of Databases
-
-            if (!DatabasesListed)
+            if (!AreDatabasesListed)
             {
                 using (SqlConnection Connection = new SqlConnection(@"Data Source=" + ServerComboBox.Text + ";User ID=" + UserNameTextBox.Text + ";Password=" + PassTextBox.Text + ";Connect Timeout=" + TimeoutTextBox.Text))
                 {
@@ -148,38 +146,38 @@ namespace ProjectsManager
                         Adapter.Fill(DatabasesTable);
                         DatabaseComboBox.DisplayMember = "name";
                         DatabaseComboBox.DataSource = DatabasesTable;
-                        DatabasesListed = true;
+                        AreDatabasesListed = true;
 
                     }
                     catch (Exception exp)
                     { MessageBox.Show(exp.Message); }
                 }
             }
-
         }
 
-        private void comboBox1_DropDown(object sender, EventArgs e)
+        /// <summary>
+        //   Get list of servers
+        /// </summary>
+        private void ServerComboBox_DropDown(object sender, EventArgs e)
         {
-            //get list of servers
-
-            if (!ServersAreListed)
+            if (!AreServersListed)
             {
                 ProgressBar1.Visible = true;
-                if (!backgroundWorker1.IsBusy)
+                if (!ListServersBGW.IsBusy)
                 {
-                    backgroundWorker1.RunWorkerAsync();
-                    button1.Visible = false;
-                    button2.Visible = false;
+                    ListServersBGW.RunWorkerAsync();
+                    SaveButton.Visible = false;
+                    TryConnectButton.Visible = false;
                 }
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void ListServersBGW_DoWork(object sender, DoWorkEventArgs e)
         {
             SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
             DataTable DT = instance.GetDataSources();
@@ -188,24 +186,23 @@ namespace ProjectsManager
             {
                 ServersList.Add(server[DT.Columns["ServerName"]].ToString());
             }
-            ServersAreListed = true;
+            AreServersListed = true;
         }
 
-        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void ListServersBGW_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             ServerComboBox.DataSource = ServersList;
             ProgressBar1.Visible = false;
-            button1.Visible = true;
-            button2.Visible = true;
+            SaveButton.Visible = true;
+            TryConnectButton.Visible = true;
         }
 
-        private void label11_DoubleClick(object sender, EventArgs e)
+        private void DeveloperOptionsLabel_DoubleClick(object sender, EventArgs e)
         {
-            groupBox3.Visible = true;
-
+            DeveloperOptionsGroupBox.Visible = true;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void ResetSettingsButton_Click(object sender, EventArgs e)
         {
             Settings1.Default.Reset();
             Settings1.Default.Save();
@@ -220,8 +217,5 @@ namespace ProjectsManager
             Process.Start(Info);
             Application.Exit();
         }
-
-       
-
     }
 }

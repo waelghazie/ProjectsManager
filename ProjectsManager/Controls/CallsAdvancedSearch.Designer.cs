@@ -1,6 +1,6 @@
 ﻿namespace ProjectsManager
 {
-    partial class CallsAdvancedSearch
+    partial class CallsSearchPanel
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace ProjectsManager
 {
-    partial class BackupDBForm
+    partial class BackupDatabaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -38,8 +38,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.CloseButton = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.StatusLabel = new System.Windows.Forms.Label();
+            this.CreateBackupBGW = new System.ComponentModel.BackgroundWorker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ServerTextBox = new System.Windows.Forms.TextBox();
@@ -90,7 +90,7 @@
             this.StartButton.TabIndex = 2;
             this.StartButton.Text = "إنشاء";
             this.StartButton.UseVisualStyleBackColor = true;
-            this.StartButton.Click += new System.EventHandler(this.button2_Click);
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // FileNameTextBox
             // 
@@ -135,21 +135,21 @@
             this.CloseButton.TabIndex = 6;
             this.CloseButton.Text = "اغلاق";
             this.CloseButton.UseVisualStyleBackColor = true;
-            this.CloseButton.Click += new System.EventHandler(this.button1_Click);
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // label4
+            // StatusLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(159, 175);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "label4";
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.Location = new System.Drawing.Point(159, 175);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(35, 13);
+            this.StatusLabel.TabIndex = 7;
+            this.StatusLabel.Text = "label4";
             // 
-            // backgroundWorker1
+            // CreateBackupBGW
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            this.CreateBackupBGW.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CreateBackupBGW_DoWork);
+            this.CreateBackupBGW.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.CreateBackupBGW_RunWorkerCompleted);
             // 
             // pictureBox1
             // 
@@ -179,7 +179,7 @@
             this.ServerTextBox.Size = new System.Drawing.Size(168, 20);
             this.ServerTextBox.TabIndex = 9;
             // 
-            // BackupDBForm
+            // BackupDatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -189,7 +189,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ServerTextBox);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.FileNameTextBox);
@@ -202,12 +202,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "BackupDBForm";
+            this.Name = "BackupDatabaseForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "عمل نسخة احتياطية";
-            this.Load += new System.EventHandler(this.Form10_Load);
+            this.Text = "إنشاء نسخة احتياطية لقاعدة البيانات";
+            this.Load += new System.EventHandler(this.BackupDatabaseForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -226,8 +226,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripProgressBar ProgressBar1;
         private System.Windows.Forms.Button CloseButton;
-        private System.Windows.Forms.Label label4;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label StatusLabel;
+        private System.ComponentModel.BackgroundWorker CreateBackupBGW;
         internal System.Windows.Forms.TextBox PathTextBox;
         internal System.Windows.Forms.TextBox FileNameTextBox;
         private System.Windows.Forms.PictureBox pictureBox1;

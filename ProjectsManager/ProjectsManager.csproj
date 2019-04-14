@@ -169,6 +169,7 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Design">
       <Private>True</Private>
     </Reference>
@@ -218,29 +219,34 @@
     <Compile Include="Controls\EnterServiceTextForVisit.Designer.cs">
       <DependentUpon>EnterServiceTextForVisit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Management\CreateNewDBform.cs">
+    <Compile Include="Management\CreateDatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Management\CreateNewDBform.designer.cs">
-      <DependentUpon>CreateNewDBform.cs</DependentUpon>
+    <Compile Include="Management\CreateDatabaseForm.designer.cs">
+      <DependentUpon>CreateDatabaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataEntries\PlantTypeForm.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserForms\PlantTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataEntries\PlantTypeForm.Designer.cs">
+    <Compile Include="UserForms\PlantTypeForm.Designer.cs">
       <DependentUpon>PlantTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FolderBrowser.cs">
+    <Compile Include="UserForms\FolderBrowser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FolderBrowser.Designer.cs">
+    <Compile Include="UserForms\FolderBrowser.Designer.cs">
       <DependentUpon>FolderBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Management\ColumnsSelect.cs">
+    <Compile Include="Management\ColumnsSelectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Management\ColumnsSelect.Designer.cs">
-      <DependentUpon>ColumnsSelect.cs</DependentUpon>
+    <Compile Include="Management\ColumnsSelectForm.Designer.cs">
+      <DependentUpon>ColumnsSelectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\DeleteItem.cs" />
     <Compile Include="Controls\NotifyMessage.cs">
@@ -261,11 +267,11 @@
     <Compile Include="Controls\InstituteAdvancedSearch.Designer.cs">
       <DependentUpon>InstituteAdvancedSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Management\DBSettingsForm.cs">
+    <Compile Include="Management\DatabaseSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Management\DBSettingsForm.Designer.cs">
-      <DependentUpon>DBSettingsForm.cs</DependentUpon>
+    <Compile Include="Management\DatabaseSettingsForm.Designer.cs">
+      <DependentUpon>DatabaseSettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Experimental\AutoCompleteTextBox.cs">
       <SubType>UserControl</SubType>
@@ -273,34 +279,34 @@
     <Compile Include="Experimental\AutoCompleteTextBox.Designer.cs">
       <DependentUpon>AutoCompleteTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Management\BackupWindow.cs">
+    <Compile Include="Management\BackupDatabaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Management\BackupWindow.Designer.cs">
-      <DependentUpon>BackupWindow.cs</DependentUpon>
+    <Compile Include="Management\BackupDatabaseForm.Designer.cs">
+      <DependentUpon>BackupDatabaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CallWindow.cs">
+    <Compile Include="UserForms\CallWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CallWindow.Designer.cs">
+    <Compile Include="UserForms\CallWindow.Designer.cs">
       <DependentUpon>CallWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataEntries\InstituteProfessionsWindows.cs">
+    <Compile Include="UserForms\InstituteProfessionsWindows.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataEntries\InstituteProfessionsWindows.Designer.cs">
+    <Compile Include="UserForms\InstituteProfessionsWindows.Designer.cs">
       <DependentUpon>InstituteProfessionsWindows.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataEntries\TechniciansWindows.cs">
+    <Compile Include="UserForms\TechniciansWindows.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataEntries\TechniciansWindows.Designer.cs">
+    <Compile Include="UserForms\TechniciansWindows.Designer.cs">
       <DependentUpon>TechniciansWindows.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataEntries\VehiclesWindows.cs">
+    <Compile Include="UserForms\VehiclesWindows.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataEntries\VehiclesWindows.Designer.cs">
+    <Compile Include="UserForms\VehiclesWindows.Designer.cs">
       <DependentUpon>VehiclesWindows.cs</DependentUpon>
     </Compile>
     <Compile Include="Management\ApplicationWizardForm.cs">
@@ -310,11 +316,11 @@
       <DependentUpon>ApplicationWizardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Encryption.cs" />
-    <Compile Include="Management\LicenseWindow.cs">
+    <Compile Include="Management\LicenseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Management\LicenseWindow.Designer.cs">
-      <DependentUpon>LicenseWindow.cs</DependentUpon>
+    <Compile Include="Management\LicenseForm.Designer.cs">
+      <DependentUpon>LicenseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Management\LoginForm.cs">
       <SubType>Form</SubType>
@@ -334,24 +340,19 @@
     <Compile Include="Controls\PlantChoose.Designer.cs">
       <DependentUpon>PlantChoose.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintForm.cs">
+    <Compile Include="UserForms\PrintForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintForm.Designer.cs">
+    <Compile Include="UserForms\PrintForm.Designer.cs">
       <DependentUpon>PrintForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="projectsmanagerDataSet.cs">
+    <Compile Include="Reports\projectsmanagerDataSet.cs">
       <DependentUpon>projectsmanagerDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="projectsmanagerDataSet.Designer.cs">
+    <Compile Include="Reports\projectsmanagerDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>projectsmanagerDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -379,60 +380,59 @@
     <Compile Include="Reminders\RemindersView.Designer.cs">
       <DependentUpon>RemindersView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Management\RestoreDBBackupForm.cs">
+    <Compile Include="Management\RestoreBackupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Management\RestoreDBBackupForm.Designer.cs">
-      <DependentUpon>RestoreDBBackupForm.cs</DependentUpon>
+    <Compile Include="Management\RestoreBackupForm.Designer.cs">
+      <DependentUpon>RestoreBackupForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\RestoreItem.cs" />
     <Compile Include="Classes\ReplaceChar.cs" />
-    <Compile Include="RTFeditorForm.cs">
+    <Compile Include="UserForms\RTFeditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RTFeditorForm.Designer.cs">
+    <Compile Include="UserForms\RTFeditorForm.Designer.cs">
       <DependentUpon>RTFeditorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProgramForm.cs">
+    <Compile Include="UserForms\ProgramForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgramForm.Designer.cs">
+    <Compile Include="UserForms\ProgramForm.Designer.cs">
       <DependentUpon>ProgramForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings1.cs" />
     <Compile Include="Settings1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
-    <Compile Include="Management\AppSettingsForm.cs">
+    <Compile Include="Management\ApplicationSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Management\AppSettingsForm.Designer.cs">
-      <DependentUpon>AppSettingsForm.cs</DependentUpon>
+    <Compile Include="Management\ApplicationSettingsForm.Designer.cs">
+      <DependentUpon>ApplicationSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InstituteForm.cs">
+    <Compile Include="UserForms\InstituteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InstituteForm.Designer.cs">
+    <Compile Include="UserForms\InstituteForm.Designer.cs">
       <DependentUpon>InstituteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PlantForm.cs">
+    <Compile Include="UserForms\PlantForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PlantForm.Designer.cs">
+    <Compile Include="UserForms\PlantForm.Designer.cs">
       <DependentUpon>PlantForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataEntries\CustomersForm.cs">
+    <Compile Include="UserForms\CustomersForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataEntries\CustomersForm.Designer.cs">
+    <Compile Include="UserForms\CustomersForm.Designer.cs">
       <DependentUpon>CustomersForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataEntries\ContractorsForm.cs">
+    <Compile Include="UserForms\ContractorsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataEntries\ContractorsForm.Designer.cs">
+    <Compile Include="UserForms\ContractorsForm.Designer.cs">
       <DependentUpon>ContractorsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -454,18 +454,18 @@
     <EmbeddedResource Include="Controls\EnterServiceTextForVisit.resx">
       <DependentUpon>EnterServiceTextForVisit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Management\CreateNewDBform.resx">
-      <DependentUpon>CreateNewDBform.cs</DependentUpon>
+    <EmbeddedResource Include="Management\CreateDatabaseForm.resx">
+      <DependentUpon>CreateDatabaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataEntries\PlantTypeForm.resx">
+    <EmbeddedResource Include="UserForms\PlantTypeForm.resx">
       <DependentUpon>PlantTypeForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FolderBrowser.resx">
+    <EmbeddedResource Include="UserForms\FolderBrowser.resx">
       <DependentUpon>FolderBrowser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Management\ColumnsSelect.resx">
-      <DependentUpon>ColumnsSelect.cs</DependentUpon>
+    <EmbeddedResource Include="Management\ColumnsSelectForm.resx">
+      <DependentUpon>ColumnsSelectForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\NotifyMessage.resx">
@@ -480,31 +480,31 @@
       <DependentUpon>InstituteAdvancedSearch.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Management\DBSettingsForm.resx">
-      <DependentUpon>DBSettingsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Management\DatabaseSettingsForm.resx">
+      <DependentUpon>DatabaseSettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Experimental\AutoCompleteTextBox.resx">
       <DependentUpon>AutoCompleteTextBox.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Management\BackupWindow.resx">
-      <DependentUpon>BackupWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Management\BackupDatabaseForm.resx">
+      <DependentUpon>BackupDatabaseForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="CallWindow.resx">
+    <EmbeddedResource Include="UserForms\CallWindow.resx">
       <DependentUpon>CallWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataEntries\InstituteProfessionsWindows.resx">
+    <EmbeddedResource Include="UserForms\InstituteProfessionsWindows.resx">
       <DependentUpon>InstituteProfessionsWindows.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataEntries\TechniciansWindows.resx">
+    <EmbeddedResource Include="UserForms\TechniciansWindows.resx">
       <DependentUpon>TechniciansWindows.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataEntries\VehiclesWindows.resx">
+    <EmbeddedResource Include="UserForms\VehiclesWindows.resx">
       <DependentUpon>VehiclesWindows.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -512,8 +512,8 @@
       <DependentUpon>ApplicationWizardForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Management\LicenseWindow.resx">
-      <DependentUpon>LicenseWindow.cs</DependentUpon>
+    <EmbeddedResource Include="Management\LicenseForm.resx">
+      <DependentUpon>LicenseForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Management\LoginForm.resx">
@@ -528,7 +528,7 @@
       <DependentUpon>PlantChoose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PlantServiceReport.rdlc" />
-    <EmbeddedResource Include="PrintForm.resx">
+    <EmbeddedResource Include="UserForms\PrintForm.resx">
       <DependentUpon>PrintForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -548,34 +548,34 @@
       <DependentUpon>RemindersView.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Management\RestoreDBBackupForm.resx">
-      <DependentUpon>RestoreDBBackupForm.cs</DependentUpon>
+    <EmbeddedResource Include="Management\RestoreBackupForm.resx">
+      <DependentUpon>RestoreBackupForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="RTFeditorForm.resx">
+    <EmbeddedResource Include="UserForms\RTFeditorForm.resx">
       <DependentUpon>RTFeditorForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgramForm.resx">
+    <EmbeddedResource Include="UserForms\ProgramForm.resx">
       <DependentUpon>ProgramForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Management\AppSettingsForm.resx">
-      <DependentUpon>AppSettingsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Management\ApplicationSettingsForm.resx">
+      <DependentUpon>ApplicationSettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="InstituteForm.resx">
+    <EmbeddedResource Include="UserForms\InstituteForm.resx">
       <DependentUpon>InstituteForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PlantForm.resx">
+    <EmbeddedResource Include="UserForms\PlantForm.resx">
       <DependentUpon>PlantForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataEntries\CustomersForm.resx">
+    <EmbeddedResource Include="UserForms\CustomersForm.resx">
       <DependentUpon>CustomersForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="DataEntries\ContractorsForm.resx">
+    <EmbeddedResource Include="UserForms\ContractorsForm.resx">
       <DependentUpon>ContractorsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -588,7 +588,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="SplashScreen.resx">
+    <EmbeddedResource Include="Management\SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -596,10 +596,10 @@
       <DependentUpon>UsersManagementForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="SplashScreen.cs">
+    <Compile Include="Management\SplashScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SplashScreen.Designer.cs">
+    <Compile Include="Management\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TablessControl.cs">
@@ -666,23 +666,22 @@
     <None Include="Resources\Untitled-12.png" />
     <None Include="Resources\warning.png" />
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="projectsmanagerDataSet.xsc">
+    <None Include="Reports\projectsmanagerDataSet.xsc">
       <DependentUpon>projectsmanagerDataSet.xsd</DependentUpon>
     </None>
-    <None Include="projectsmanagerDataSet.xsd">
+    <None Include="Reports\projectsmanagerDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>projectsmanagerDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="projectsmanagerDataSet.xss">
+    <None Include="Reports\projectsmanagerDataSet.xss">
       <DependentUpon>projectsmanagerDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\DB_script.txt" />
+    <None Include="Resources\DatabaseScripts\DB_script.txt" />
     <None Include="Resources\home.png" />
     <None Include="Resources\home1.png" />
     <None Include="Resources\customers.png" />
@@ -761,8 +760,8 @@
     <None Include="Resources\settings-1.png" />
     <None Include="Resources\user-6.png" />
     <None Include="Resources\wrong-md.png" />
-    <None Include="Resources\Views_script.txt" />
-    <None Include="Resources\Tables_script.txt" />
+    <None Include="Resources\DatabaseScripts\Views_script.txt" />
+    <None Include="Resources\DatabaseScripts\Tables_script.txt" />
     <None Include="Settings1.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
@@ -770,12 +769,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Lib\" />
-    <Folder Include="Resources\DatabaseScripts\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon.ico" />
     <Content Include="Resources\favicon.ico" />
-    <None Include="Resources\SqlRestoreScript.txt" />
+    <None Include="Resources\DatabaseScripts\SqlRestoreScript.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets" Condition="Exists('..\packages\Microsoft.SqlServer.SqlManagementObjects.140.17283.0\build\net40\Microsoft.SqlServer.SqlManagementObjects.targets')" />

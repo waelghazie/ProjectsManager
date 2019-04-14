@@ -1,6 +1,6 @@
 ﻿namespace ProjectsManager
 {
-    partial class LicensingApplicationForm
+    partial class LicenseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,7 @@
             this.ExportKeyLabel = new System.Windows.Forms.Label();
             this.ImportKeyLabel = new System.Windows.Forms.Label();
             this.ImportKeyButton = new System.Windows.Forms.Button();
-            this.ExitButton = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.InfoLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SuccessPictureBox = new System.Windows.Forms.PictureBox();
@@ -53,7 +53,7 @@
             this.WelcomeLabel.Size = new System.Drawing.Size(223, 26);
             this.WelcomeLabel.TabIndex = 11;
             this.WelcomeLabel.Text = "شكراً لاستخدامك برنامج مدير المشاريع\r\nهذا البرنامج يخضع لقواعد حماية الملكية الفك" +
-                "رية";
+    "رية";
             // 
             // ActivationStatusLabel
             // 
@@ -125,16 +125,16 @@
             this.ImportKeyButton.UseVisualStyleBackColor = true;
             this.ImportKeyButton.Click += new System.EventHandler(this.ImportKeyButton_Click);
             // 
-            // ExitButton
+            // CloseButton
             // 
-            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.ExitButton.Location = new System.Drawing.Point(343, 309);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(75, 23);
-            this.ExitButton.TabIndex = 16;
-            this.ExitButton.Text = "اغلاق";
-            this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CloseButton.Location = new System.Drawing.Point(343, 309);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseButton.TabIndex = 16;
+            this.CloseButton.Text = "اغلاق";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // InfoLabel
             // 
@@ -148,9 +148,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProjectsManager.Properties.Resources.diploma;
-            this.pictureBox1.Location = new System.Drawing.Point(318, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(361, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 92);
+            this.pictureBox1.Size = new System.Drawing.Size(57, 84);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
@@ -158,25 +158,25 @@
             // SuccessPictureBox
             // 
             this.SuccessPictureBox.Image = global::ProjectsManager.Properties.Resources.success;
-            this.SuccessPictureBox.Location = new System.Drawing.Point(175, 210);
+            this.SuccessPictureBox.Location = new System.Drawing.Point(190, 208);
             this.SuccessPictureBox.Name = "SuccessPictureBox";
-            this.SuccessPictureBox.Size = new System.Drawing.Size(70, 70);
+            this.SuccessPictureBox.Size = new System.Drawing.Size(45, 42);
             this.SuccessPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.SuccessPictureBox.TabIndex = 20;
             this.SuccessPictureBox.TabStop = false;
             // 
-            // LicensingApplicationForm
+            // LicenseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.ExitButton;
+            this.CancelButton = this.CloseButton;
             this.ClientSize = new System.Drawing.Size(430, 344);
             this.ControlBox = false;
             this.Controls.Add(this.SuccessPictureBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.InfoLabel);
-            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.ImportKeyLabel);
             this.Controls.Add(this.ImportKeyButton);
             this.Controls.Add(this.ExportKeyLabel);
@@ -185,12 +185,12 @@
             this.Controls.Add(this.ActivationStatusLabel);
             this.Controls.Add(this.HowToActivateLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "LicensingApplicationForm";
+            this.Name = "LicenseForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ترخيص البرنامج";
-            this.Load += new System.EventHandler(this.LicenseWindow_Load);
+            this.Load += new System.EventHandler(this.LicenseForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SuccessPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -209,7 +209,7 @@
         private System.Windows.Forms.Label ExportKeyLabel;
         private System.Windows.Forms.Label ImportKeyLabel;
         private System.Windows.Forms.Button ImportKeyButton;
-        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Label InfoLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox SuccessPictureBox;

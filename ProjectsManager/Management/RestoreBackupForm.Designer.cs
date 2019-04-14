@@ -1,6 +1,6 @@
 ﻿namespace ProjectsManager
 {
-    partial class RestoreDBBackupForm
+    partial class RestoreBackupForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,21 +36,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BackupFolderTextBox = new System.Windows.Forms.TextBox();
             this.DatabaseTextBox = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.FilesGrid = new System.Windows.Forms.DataGridView();
             this.StartButton = new System.Windows.Forms.Button();
             this.FileNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.ExitButton = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.ConfirmTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.progressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.RestoreBGW = new System.ComponentModel.BackgroundWorker();
             this.GetFileBGW = new System.ComponentModel.BackgroundWorker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FilesGrid)).BeginInit();
+            this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,14 +90,14 @@
             this.DatabaseTextBox.Size = new System.Drawing.Size(243, 20);
             this.DatabaseTextBox.TabIndex = 3;
             // 
-            // dataGridView1
+            // FilesGrid
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
-            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.FilesGrid.AllowUserToAddRows = false;
+            this.FilesGrid.AllowUserToDeleteRows = false;
+            this.FilesGrid.AllowUserToOrderColumns = true;
+            this.FilesGrid.AllowUserToResizeRows = false;
+            this.FilesGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.FilesGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8F);
@@ -105,8 +105,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.FilesGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.FilesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8F);
@@ -114,13 +114,13 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FilesGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.FilesGrid.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FilesGrid.Location = new System.Drawing.Point(0, 0);
+            this.FilesGrid.MultiSelect = false;
+            this.FilesGrid.Name = "FilesGrid";
+            this.FilesGrid.ReadOnly = true;
+            this.FilesGrid.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
@@ -128,15 +128,15 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.RowHeadersVisible = false;
+            this.FilesGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.FilesGrid.RowHeadersVisible = false;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.LightSkyBlue;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(552, 109);
-            this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            this.FilesGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.FilesGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.FilesGrid.Size = new System.Drawing.Size(552, 109);
+            this.FilesGrid.TabIndex = 6;
+            this.FilesGrid.SelectionChanged += new System.EventHandler(this.FilesGrid_SelectionChanged);
             // 
             // StartButton
             // 
@@ -147,7 +147,7 @@
             this.StartButton.TabIndex = 7;
             this.StartButton.Text = "استرجاع";
             this.StartButton.UseVisualStyleBackColor = true;
-            this.StartButton.Click += new System.EventHandler(this.button1_Click);
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // FileNameTextBox
             // 
@@ -167,16 +167,16 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "الملف الذي تم اختياره:";
             // 
-            // ExitButton
+            // CloseButton
             // 
-            this.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.ExitButton.Location = new System.Drawing.Point(465, 316);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(75, 23);
-            this.ExitButton.TabIndex = 10;
-            this.ExitButton.Text = "إغلاق";
-            this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.button2_Click);
+            this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CloseButton.Location = new System.Drawing.Point(465, 316);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(75, 23);
+            this.CloseButton.TabIndex = 10;
+            this.CloseButton.Text = "إغلاق";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // label4
             // 
@@ -186,7 +186,7 @@
             this.label4.Size = new System.Drawing.Size(423, 26);
             this.label4.TabIndex = 11;
             this.label4.Text = "يجب التأكد من خروج كافة المستخدمين وعدم العمل لحين الانتهاء من استرجاع قاعدة البي" +
-                "انات\r\nتحذير :  لا يمكن التراجع عن العملية\r\n";
+    "انات\r\nتحذير :  لا يمكن التراجع عن العملية\r\n";
             // 
             // ConfirmTextBox
             // 
@@ -208,16 +208,16 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "RestoreDB!";
             // 
-            // statusStrip1
+            // statusStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.progressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 366);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(552, 22);
-            this.statusStrip1.SizingGrip = false;
-            this.statusStrip1.TabIndex = 15;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip.Location = new System.Drawing.Point(0, 366);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(552, 22);
+            this.statusStrip.SizingGrip = false;
+            this.statusStrip.TabIndex = 15;
+            this.statusStrip.Text = "statusStrip1";
             // 
             // progressBar1
             // 
@@ -244,37 +244,37 @@
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
             // 
-            // RestoreDBBackupForm
+            // RestoreBackupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.ExitButton;
+            this.CancelButton = this.CloseButton;
             this.ClientSize = new System.Drawing.Size(552, 388);
             this.ControlBox = false;
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ConfirmTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.FileNameTextBox);
             this.Controls.Add(this.StartButton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.FilesGrid);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BackupFolderTextBox);
             this.Controls.Add(this.DatabaseTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "RestoreDBBackupForm";
+            this.Name = "RestoreBackupForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "استرجاع نسخة احتياطية";
-            this.Load += new System.EventHandler(this.RestoreDBBackupForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.Text = "استعادة نسخة احتياطية";
+            this.Load += new System.EventHandler(this.RestoreBackupForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.FilesGrid)).EndInit();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -288,15 +288,15 @@
         private System.Windows.Forms.TextBox DatabaseTextBox;
         private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button ExitButton;
+        private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox ConfirmTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker RestoreBGW;
         private System.ComponentModel.BackgroundWorker GetFileBGW;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView FilesGrid;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.TextBox BackupFolderTextBox;
         public System.Windows.Forms.TextBox FileNameTextBox;

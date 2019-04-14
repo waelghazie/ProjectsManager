@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 
 namespace ProjectsManager
 {
-    public partial class LicensingApplicationForm : Form
+    public partial class LicenseForm : Form
     {
-        public LicensingApplicationForm()
+        public LicenseForm()
         {
             InitializeComponent();
         }
@@ -23,7 +17,7 @@ namespace ProjectsManager
         ActivationInfo ActivationInfoObject;
         
 
-        private void LicenseWindow_Load(object sender, EventArgs e)
+        private void LicenseForm_Load(object sender, EventArgs e)
         {
             SuccessPictureBox.Visible = false;
             InfoLabel.Visible = false;
@@ -122,7 +116,7 @@ namespace ProjectsManager
             InfoLabel.Visible = true;
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
             Close();
         }

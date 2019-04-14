@@ -1,6 +1,6 @@
 ﻿namespace ProjectsManager
 {
-    partial class InstituteAdvancedSearch
+    partial class InstituteSearchPanel
     {
         /// <summary>
         /// Required designer variable.

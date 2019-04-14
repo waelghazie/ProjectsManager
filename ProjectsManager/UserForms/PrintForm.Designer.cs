@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.PlantServiceViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.projectsmanagerDataSet = new ProjectsManager.projectsmanagerDataSet();
+            this.projectsmanagerDataSet = new ProjectsManager.Reports.projectsmanagerDataSet();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.ProgramsViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ProgramsViewTableAdapter = new ProjectsManager.projectsmanagerDataSetTableAdapters.ProgramsViewTableAdapter();
-            this.PlantServiceViewTableAdapter = new ProjectsManager.projectsmanagerDataSetTableAdapters.PlantServiceViewTableAdapter();
+            this.ProgramsViewTableAdapter = new ProjectsManager.Reports.projectsmanagerDataSetTableAdapters.ProgramsViewTableAdapter();
+            this.PlantServiceViewTableAdapter = new ProjectsManager.Reports.projectsmanagerDataSetTableAdapters.PlantServiceViewTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.PlantServiceViewBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectsmanagerDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProgramsViewBindingSource)).BeginInit();
@@ -99,10 +99,10 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource ProgramsViewBindingSource;
-        private projectsmanagerDataSet projectsmanagerDataSet;
-        private ProjectsManager.projectsmanagerDataSetTableAdapters.ProgramsViewTableAdapter ProgramsViewTableAdapter;
+        private Reports.projectsmanagerDataSet projectsmanagerDataSet;
+        private ProjectsManager.Reports.projectsmanagerDataSetTableAdapters.ProgramsViewTableAdapter ProgramsViewTableAdapter;
         private System.Windows.Forms.BindingSource PlantServiceViewBindingSource;
-        private ProjectsManager.projectsmanagerDataSetTableAdapters.PlantServiceViewTableAdapter PlantServiceViewTableAdapter;
+        private ProjectsManager.Reports.projectsmanagerDataSetTableAdapters.PlantServiceViewTableAdapter PlantServiceViewTableAdapter;
 
 
 
