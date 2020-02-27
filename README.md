@@ -15,3 +15,6 @@ Front-end in C#, Back-end SQL Server.
 
 Install Link:
 https://www.dropbox.com/s/0s3tvcgkw3966he/ProjectsManagerSetup.exe?dl=0
+
+Screenshots:
+<img src="/screenshots/1.PNG" width="200px">
